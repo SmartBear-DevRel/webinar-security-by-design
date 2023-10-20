@@ -6,7 +6,7 @@
 # ENDPOINT=https://sbdevrel-fua-smartbearcoin-prd.azurewebsites.net/api/payees
 
 ENDPOINT=${ENDPOINT:-'https://sbdevrel-fua-smartbearcoin-acc.azurewebsites.net/api'}
-PROJECT_FOLDER=${PROJECT_FOLDER:-'ReadyAPI_Tests'}
+PROJECT_FOLDER=${PROJECT_FOLDER:-'ReadyAPI-Tests'}
 PROJECT_FILE=${PROJECT_FILE:-'secure-by-design-readyapi-project.xml'}
 
 MISSING=()
