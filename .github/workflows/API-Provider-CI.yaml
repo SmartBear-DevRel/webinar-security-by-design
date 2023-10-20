@@ -1,7 +1,13 @@
 name: API-Provider-CI
 
 on:
-  workflow_dispatch:
+    push:
+      branches:
+      - main
+    pull_request:
+    workflow_dispatch:
+      
+      
 
 env:
     #oas_file: oas/openapi-transformed.json
