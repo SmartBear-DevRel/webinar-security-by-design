@@ -10,11 +10,14 @@ env:
 jobs:
   test-api:
     runs-on: ubuntu-latest
+    #environment: acc
     steps:
-      - uses: actions/checkout@v3
+      - name: 'Checkout code'
+        uses: actions/checkout@main
       - name: Test
         run: chmod ugo+rwx ReadyAPI-Tests && ./launchReadyAPITestRunner.sh
         env:
           PROJECT_FOLDER: ReadyAPI-Tests
           PROJECT_FILE: 'secure-by-design-readyapi-project.xml'
           SLM_API_KEY: ${{ secrets.SLM_API_KEY }} 
+          ENDPOINT: https://sbdevrel-fua-smartbearcoin-acc.azurewebsites.net/api
