@@ -18,8 +18,10 @@ jobs:
       # Run Spectral
       - uses: stoplightio/spectral-action@latest
         with:
-          file_glob: 'api/*.yaml' 
+          file_glob: 'api/*.yaml'
+          spectral_ruleset: '.spectral.yaml'
   test-api:
+    needs: lint-api
     runs-on: ubuntu-latest
     #environment: acc
     steps:
