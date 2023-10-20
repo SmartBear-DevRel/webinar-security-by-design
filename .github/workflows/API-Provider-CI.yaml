@@ -20,6 +20,10 @@ jobs:
     steps:
       # Check out the repository
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+      - run: |
+          npm install --save -D @stoplight/spectral-owasp-ruleset
+          npm install --save -D @stoplight/spectral-cli
       # Run Spectral
       - uses: stoplightio/spectral-action@latest
         with:
