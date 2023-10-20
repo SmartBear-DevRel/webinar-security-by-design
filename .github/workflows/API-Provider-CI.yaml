@@ -8,16 +8,23 @@ env:
     results_file: ReadyAPI-Tests/report.xml
 
 jobs:
+  lint-api:
+    name: Run Spectral
+    runs-on: ubuntu-latest
+    steps:
+      # Check out the repository
+      - uses: actions/checkout@main
+
+      # Run Spectral
+      - uses: stoplightio/spectral-action@latest
+        with:
+          file_glob: 'api/*.yaml' 
   test-api:
     runs-on: ubuntu-latest
     #environment: acc
     steps:
       - name: 'Checkout code'
         uses: actions/checkout@main
-      - name: Run Spectral
-        uses: stoplightio/spectral-action@latest
-        with:
-          file_blob: 'api/*.yaml'
       - name: Test
         run: chmod ugo+rwx ReadyAPI-Tests && ./launchReadyAPITestRunner.sh
         env:
