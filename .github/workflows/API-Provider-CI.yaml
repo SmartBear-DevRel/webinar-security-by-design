@@ -14,6 +14,10 @@ jobs:
     steps:
       - name: 'Checkout code'
         uses: actions/checkout@main
+      - name: Run Spectral
+        uses: stoplightio/spectral-action@latest
+        with:
+          file_blob: 'api/*.yaml'
       - name: Test
         run: chmod ugo+rwx ReadyAPI-Tests && ./launchReadyAPITestRunner.sh
         env:
