@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "secure-by-design"
+version = "0.1.0"
+description = "Code for the Secure By Design Webinar"
+authors = ["Jose Haro Peralta"]
+readme = "README.md"
+packages = [{include = "secure_by_design"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.100.0"
+uvicorn = "^0.22.0"
+sqlalchemy = "^2.0.19"
+alembic = "^1.11.1"
+psycopg = {extras = ["binary"], version = "^3.1.9"}
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
