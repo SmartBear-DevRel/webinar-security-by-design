@@ -1,0 +1,492 @@
+openapi: 3.1.0
+info:
+  title: E-commerce API
+  version: 0.1.0
+paths:
+  /login:
+    post:
+      summary: Login
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessToken'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /sellers/{seller_id}:
+    get:
+      summary: Get Seller Details
+      operationId: get_seller_details
+      parameters:
+        - name: seller_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Seller profile details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SellerProfile'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /users/{user_id}:
+    put:
+      summary: Update User Profile
+      operationId: update_user_profile
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerProfile'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerProfile'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /books:
+    get:
+      summary: List Books
+      operationId: list_books
+      parameters:
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 10
+        - name: filter
+          in: query
+          required: false
+          schema:
+            type: string
+            default: ''
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBooks'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      summary: Create Book Listing
+      operationId: create_book_listing
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListBook'
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBookDetails'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /admin/books:
+    post:
+      summary: Create Book Listing
+      operationId: create_book_listing_admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListBook'
+        required: true
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBookDetails'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /books/{book_id}:
+    get:
+      summary: Get Book Listing Details
+      operationId: get_book_listing_details
+      parameters:
+        - name: book_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBookDetails'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /orders:
+    get:
+      summary: List Orders
+      operationId: list_orders
+      parameters:
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 10
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+            default: delivered
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOrders'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /orders/{order_id}:
+    put:
+      summary: Update Order Details
+      operationId: update_order_details
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlaceOrder'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOrderDetails'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    AccessToken:
+      properties:
+        access_token:
+          type: string
+        refresh_token:
+          type: string
+      type: object
+      required:
+        - access_token
+        - refresh_token
+    BookFormatEnum:
+      type: string
+      enum:
+        - printed
+        - ebook
+    CustomerProfile:
+      properties:
+        id:
+          type: string
+        created:
+          type: string
+          format: date-time
+        last_updated:
+          type: string
+          format: date-time
+      type: object
+      required:
+        - id
+        - created
+        - last_updated
+    GetBookDetails:
+      properties:
+        format:
+          $ref: '#/components/schemas/BookFormatEnum'
+        author:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        percent_discount:
+          type: number
+        discount_min_loyalty_points:
+          type: integer
+        pages:
+          anyOf:
+            - type: integer
+        byte_size:
+          type: integer
+        id:
+          type: integer
+        created:
+          type: string
+          format: date-time
+        last_updated:
+          type: string
+          format: date-time
+        price_per_page:
+          type: number
+        price_per_byte:
+          type: number
+      type: object
+      required:
+        - id
+        - created
+        - last_updated
+        - format
+        - author
+        - title
+        - description
+        - price
+    GetOrderDetails:
+      properties:
+        books:
+          items:
+            type: integer
+          type: array
+        delivery_address:
+          type: string
+        id:
+          type: integer
+        created:
+          type: string
+          format: date-time
+        last_updated:
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/OrderStatusEnum'
+      type: object
+      required:
+        - books
+        - delivery_address
+        - id
+        - created
+        - last_updated
+        - status
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+      type: object
+    ListBook:
+      properties:
+        format:
+          $ref: '#/components/schemas/BookFormatEnum'
+        author:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        percent_discount:
+          type: number
+        discount_min_loyalty_points:
+          type: integer
+        pages:
+          type: integer
+        byte_size:
+          type: integer
+      type: object
+      required:
+        - format
+        - author
+        - title
+        - description
+        - price
+    ListBooks:
+      properties:
+        books:
+          items:
+            $ref: '#/components/schemas/GetBookDetails'
+          type: array
+      type: object
+      required:
+        - books
+    ListOrders:
+      properties:
+        orders:
+          items:
+            $ref: '#/components/schemas/GetOrderDetails'
+          type: array
+      type: object
+      required:
+        - orders
+    Login:
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      type: object
+      required:
+        - username
+        - password
+    OrderStatusEnum:
+      type: string
+      enum:
+        - placed
+        - paid
+        - delivered
+    PlaceOrder:
+      properties:
+        books:
+          items:
+            type: integer
+          type: array
+        delivery_address:
+          type: string
+      type: object
+      required:
+        - books
+        - delivery_address
+    SellerProfile:
+      properties:
+        id:
+          type: integer
+        created:
+          type: string
+          format: date-time
+        last_updated:
+          type: string
+          format: date-time
+        name:
+          type: string
+        address:
+          type: string
+        sales:
+          type: integer
+        account_details:
+          type: string
+      type: object
+      required:
+        - id
+        - created
+        - last_updated
+        - name
+        - address
+        - sales
+        - account_details
+    UpdateCustomerProfile:
+      properties:
+        name:
+          type: string
+        avatar_url:
+          type: string
+        address:
+          type: string
+        card_details:
+          type: string
+        loyalty_points:
+          type: integer
+      type: object
+      required:
+        - name
+        - address
+        - card_details
+        - loyalty_points
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+          type: array
+        msg:
+          type: string
+        type:
+          type: string
+      type: object
+      required:
+        - loc
+        - msg
+        - type
