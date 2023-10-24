@@ -87,8 +87,7 @@ class SellerProfile(BaseModel):
     account_details: str
 
 
-
-class UpdateCustomerProfile(BaseModel):
+class UpdateUserProfile(BaseModel, extra=Extra.allow):
     name: str
     avatar_url: Optional[str] = None
     address: str
@@ -96,7 +95,7 @@ class UpdateCustomerProfile(BaseModel):
     loyalty_points: int
 
 
-class CustomerProfile(BaseModel):
-    id: str
+class UserProfile(UpdateUserProfile):
+    id: int
     created: datetime
     last_updated: datetime

@@ -1,12 +1,25 @@
+from datetime import datetime, timezone, timedelta
 from typing import Optional
 
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+from jose import jwt
 from sqlalchemy import create_engine, select, text
 from sqlalchemy.orm import sessionmaker
 
-from models import BookListing, Order
-from schemas import PlaceOrder, GetOrderDetails, GetBookDetails, ListBook, Login, AccessToken, ListBooks, ListOrders, \
-    SellerProfile, CustomerProfile, UpdateCustomerProfile
+from src.models import BookListing, Order, User
+from src.schemas import (
+    PlaceOrder,
+    GetOrderDetails,
+    GetBookDetails,
+    ListBook,
+    Login,
+    AccessToken,
+    ListBooks,
+    ListOrders,
+    SellerProfile,
+    UserProfile,
+    UpdateUserProfile,
+)
 
 server = FastAPI(debug=True, title="E-commerce API")
 
@@ -37,30 +50,84 @@ def book_model_to_dict(book_model):
     return book
 
 
+def generate_token(user_id, hour_duration):
+    now = datetime.now(timezone.utc)
+    payload = {
+        "iss": "https://auth.example.example",
+        "sub": str(user_id),
+        "aud": "https://ecommerce.example/api",
+        "iat": now.timestamp(),
+        "exp": (now + timedelta(hours=hour_duration)).timestamp(),
+    }
+    return jwt.encode(claims=payload, key="secret", algorithm="HS256")
+
+
 @server.post("/login", response_model=AccessToken)
 def login(login_details: Login):
-    pass
+    with session_maker() as session:
+        user = session.execute(
+            text(
+                f"select * from user where username = '{login_details.username}' "
+                f"and password = '{login_details.password}';"
+            )
+        ).fetchone()
+        if user is None:
+            raise HTTPException(status_code=401, detail=f"Wrong username or password")
+        return {
+            "access_token": generate_token(user_id=user.id, hour_duration=1),
+            "refresh_token": generate_token(user_id=user.id, hour_duration=24),
+        }
 
 
 @server.get("/sellers/{seller_id}", response_model=SellerProfile)
 def get_seller_details(seller_id: int):
-    pass
+    with session_maker() as session:
+        seller = session.execute(
+            text(f"select * from seller where id = '{seller_id}';")
+        ).fetchone()
+        if seller is None:
+            raise HTTPException(
+                status_code=404, detail=f"Seller with ID {seller_id} does not exist"
+            )
+        return {
+            "id": seller.id,
+            "created": seller.created,
+            "last_updated": seller.updated,
+            "name": seller.name,
+            "address": seller.address,
+            "sales": seller.sales,
+            "account_details": seller.account_details,
+        }
 
 
-@server.put("/users/{user_id}", response_model=CustomerProfile)
-def update_user_profile(user_id: int, user_details: UpdateCustomerProfile):
-    pass
+@server.put("/users/{user_id}", response_model=UserProfile)
+def update_user_profile(user_id: int, user_details: UpdateUserProfile):
+    with session_maker() as session:
+        user = session.scalar(select(User).where(User.id == user_id))
+        if user is None:
+            raise HTTPException(
+                status_code=404, detail=f"User with ID {user_id} does not exist"
+            )
+        for key, value in user_details:
+            setattr(user, key, value)
+        session.commit()
+        return {
+            "id": user.id,
+            "created": user.created,
+            "last_updated": user.updated,
+            "name": user.name,
+            "address": user.address,
+            "avatar_url": user.avatar_url,
+            "card_details": user.card_details,
+            "loyalty_points": user.loyalty_points,
+        }
 
 
 @server.get("/books", response_model=ListBooks)
-def list_books(offset: Optional[int] = 0, limit: Optional[int] = 10, filter: Optional[str] = ""):
+def list_books(
+    offset: Optional[int] = 0, limit: Optional[int] = 10, filter: Optional[str] = ""
+):
     with session_maker() as session:
-        # rides = session.scalars(
-        #     select(Ride).where(
-        #         Ride.customer_id == "customer_1",
-        #         Ride.status == status
-        #     )
-        # )
         books = session.execute(
             text(
                 f"select * from book_listing where discount_min_loyalty_points < 50 and "
@@ -83,7 +150,6 @@ def create_book_listing(book_details: ListBook):
             format=book_details.format,
             pages=book_details.pages,
             byte_size=book_details.byte_size,
-
         )
         session.add(book)
         session.commit()
@@ -102,7 +168,6 @@ def create_book_listing(book_details: ListBook):
             format=book_details.format,
             pages=book_details.pages,
             byte_size=book_details.byte_size,
-
         )
         session.add(book)
         session.commit()
@@ -117,31 +182,29 @@ def get_book_listing_details(book_id: int):
 
 
 @server.get("/orders", response_model=ListOrders)
-def list_orders(offset: Optional[int] = 0, limit: Optional[int] = 10, status: Optional[str] = "delivered"):
+def list_orders(
+    offset: Optional[int] = 0,
+    limit: Optional[int] = 10,
+    status: Optional[str] = "delivered",
+):
     with session_maker() as session:
-        # orders = session.scalars(
-        #     select(Order).where(
-        #         Ride.customer_id == "customer_1",
-        #         Ride.status == status
-        #     )
-        # )
         orders = session.execute(
             text(
-                f"select * from order where customer_id = 'customer_1' "
+                f"select * from order where user_id = 1 "
                 f"and status = '{status} offset {offset} limit {limit}'"
             )
         )
-        # orders = session.execute(
-        #     text(f"select * from order where customer_id = 'customer_1' offset {offset} limit {limit}")
-        # )
-        return [{
-            "id": order.id,
-            "created": order.created,
-            "last_updated": order.updated,
-            "books": order.books,
-            "status": order.status,
-            "delivery_address": order.delivery_address
-        } for order in orders]
+        return [
+            {
+                "id": order.id,
+                "created": order.created,
+                "last_updated": order.updated,
+                "books": order.books,
+                "status": order.status,
+                "delivery_address": order.delivery_address,
+            }
+            for order in orders
+        ]
 
 
 @server.put("/orders/{order_id}", response_model=GetOrderDetails)
@@ -157,88 +220,5 @@ def update_ride_details(order_id: int, order_details: PlaceOrder):
             "last_updated": order.updated,
             "books": order.books,
             "status": order.status,
-            "delivery_address": order.delivery_address
+            "delivery_address": order.delivery_address,
         }
-
-
-
-
-# @server.get("/cars/{ids}")
-# def integer_ids_cars():
-#     # ride-sharing app, we explore existing vehicles playing with IDs
-#     pass
-#
-#
-# @server.post("/cart")
-# def create_cart():
-#     # we add items to cart
-#     pass
-#
-#
-# @server.put("/cart/{id}")
-# def mass_assignment_attack():
-#     # we set status to paid
-#     pass
-#
-#
-# @server.get("/users/{id}")
-# def get_user_details():
-#     # we see user_type property
-#     pass
-#
-#
-# @server.put("/users/{id}")
-# def another_mass_assignment_attack():
-#     # we set user_type to admin; the property isn't exposed in the PUT schema,
-#     #   but because we allow unknown properties, the attack succeeds
-#     pass
-#
-#
-# @server.get("/ride/{id}")
-# def too_many_ids():
-#     # we return details of the ride, including driver ID, vehicle ID, and such
-#     pass
-#
-#
-# @server.get("/catalogue")
-# def improper_pagination():
-#     # lack of default pagination returns everything (improper pagination)
-#     # lack of value constrains allows users to set 1m items per page (unbound integers)
-#     # unrestricted string filter allows injection attack, use "' OR 1=1 --" strategy or similar;
-#     #   if we have "deleted" items marked with a flag, they'd show up
-#     pass
-#
-#
-# @server.post("/books")
-# def problematic_flexible_schemas():
-#     # ebook and printed book models combined with optional params
-#     # shared model also in db with optional columns
-#     # break response in below listing endpoint because models aren't right
-#     pass
-#
-#
-# @server.get("/printed-books")
-# def list_printed_books():
-#     pass
-#
-#
-# @server.post("/stock")
-# def weak_implicit_rbac():
-#     # level 1 can read, level 2 can read and write
-#     # us can see canada stock and canada can see us stock
-#     # by mistake, we only check country belonging and bypass the hierarchy level
-#     pass
-#
-#
-# @server.get("/admin/users/{id}")
-# def weak_endpoint_specific_admin():
-#     # we can retrieve details of all users and also make modifications
-#     pass
-#
-#
-# @server.post("/orders/{id}")
-# def cluttered_endpoint():
-#     # if payment details in payload, it's payment
-#     # if user account and action=refund, we know it's a refund request
-#     # if action=cancel, we know it's cancellation
-#     pass
