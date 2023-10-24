@@ -43,6 +43,9 @@ jobs:
         run: |
           CONTAINER_ID=$(docker ps -aqf "name=webinar-security-by-design-web-1")
           echo "::set-output name=container_id::$CONTAINER_ID"
+          echo $CONTAINER_ID > container_id.txt
+      - name: Display Container Name
+        run: cat container_id.txt
       - name: Migrate DB and Seed within ${{ steps.get-container.outputs.container_id }}
         run: |
           docker exec -it ${{ steps.get-container.outputs.container_id }} alembic upgrade heads
