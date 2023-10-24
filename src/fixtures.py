@@ -5,7 +5,10 @@ from sqlalchemy.orm import sessionmaker
 
 from models import BookListing, Seller, User
 
-db_uri = os.getenv("db_uri", None) or "postgresql+psycopg://postgres:postgres@localhost:5432/postgres"
+db_uri = (
+    os.getenv("db_uri", None)
+    or "postgresql+psycopg://postgres:postgres@localhost:5432/postgres"
+)
 session_maker = sessionmaker(bind=create_engine(db_uri))
 
 with session_maker() as session:

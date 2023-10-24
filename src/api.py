@@ -6,8 +6,9 @@ from fastapi import FastAPI, HTTPException
 from jose import jwt
 from sqlalchemy import create_engine, select, text
 from sqlalchemy.orm import sessionmaker
+from starlette import status
 
-from src.models import BookListing, Order, User
+from src.models import BookListing, Order, User, BookOrders
 from src.schemas import (
     PlaceOrder,
     GetOrderDetails,
@@ -20,11 +21,15 @@ from src.schemas import (
     SellerProfile,
     UserProfile,
     UpdateUserProfile,
+    OrderStatusEnum,
 )
 
 server = FastAPI(debug=True, title="E-commerce API")
 
-db_uri = os.getenv("db_uri", None) or "postgresql+psycopg://postgres:postgres@localhost:5432/postgres"
+db_uri = (
+    os.getenv("db_uri", None)
+    or "postgresql+psycopg://postgres:postgres@localhost:5432/postgres"
+)
 session_maker = sessionmaker(bind=create_engine(db_uri))
 
 
@@ -33,6 +38,7 @@ def book_model_to_dict(book_model):
         "id": book_model.id,
         "created": book_model.created,
         "last_updated": book_model.updated,
+        "seller_id": book_model.seller_id,
         "author": book_model.author,
         "title": book_model.title,
         "format": book_model.format,
@@ -67,7 +73,7 @@ def login(login_details: Login):
     with session_maker() as session:
         user = session.execute(
             text(
-                f"select * from user where username = '{login_details.username}' "
+                f"select * from user_profile where username = '{login_details.username}' "
                 f"and password = '{login_details.password}';"
             )
         ).fetchone()
@@ -125,24 +131,28 @@ def update_user_profile(user_id: int, user_details: UpdateUserProfile):
 
 @server.get("/books", response_model=ListBooks)
 def list_books(
-    offset: Optional[int] = 0, limit: Optional[int] = 10, filter: Optional[str] = ""
+    offset: Optional[int] = 0,
+    limit: Optional[int] = 10,
+    format: Optional[str] = "",
 ):
     with session_maker() as session:
         books = session.execute(
             text(
                 f"select * from book_listing where discount_min_loyalty_points < 50 and "
-                f"description like '%{filter}%' offset {offset} limit {limit};"
+                f"format like '%{format}%' offset {offset} limit {limit};"
             )
         )
         return {"books": [book_model_to_dict(book) for book in books]}
 
 
-@server.post("/books", response_model=GetBookDetails)
+@server.post(
+    "/books", response_model=GetBookDetails, status_code=status.HTTP_201_CREATED
+)
 def create_book_listing(book_details: ListBook):
     # restrict access to seller scope
     with session_maker() as session:
         book = BookListing(
-            seller_id=3,
+            seller_id=book_details.seller_id or 1,
             author=book_details.author,
             title=book_details.title,
             description=book_details.description,
@@ -153,14 +163,16 @@ def create_book_listing(book_details: ListBook):
         )
         session.add(book)
         session.commit()
-        return book_model_to_dict(book)
+        return GetBookDetails(**book_model_to_dict(book))
 
 
-@server.post("/admin/books", response_model=GetBookDetails)
+@server.post(
+    "/admin/books", response_model=GetBookDetails, status_code=status.HTTP_201_CREATED
+)
 def create_book_listing(book_details: ListBook):
     with session_maker() as session:
         book = BookListing(
-            seller_id=3,
+            seller_id=book_details.seller_id or 1,
             author=book_details.author,
             title=book_details.title,
             description=book_details.description,
@@ -188,37 +200,65 @@ def list_orders(
     status: Optional[str] = "delivered",
 ):
     with session_maker() as session:
-        orders = session.execute(
-            text(
-                f"select * from order where user_id = 1 "
-                f"and status = '{status} offset {offset} limit {limit}'"
-            )
+        orders = session.scalars(
+            select(Order).where(Order.status == status).offset(offset).limit(limit)
         )
-        return [
-            {
+        return {
+            "orders": [
+                {
+                    "id": order.id,
+                    "created": order.created,
+                    "last_updated": order.updated,
+                    "books": [book.book_id for book in order.books],
+                    "status": order.status,
+                    "delivery_address": order.delivery_address,
+                }
+                for order in orders
+            ]
+        }
+
+
+@server.post(
+    "/orders", response_model=GetOrderDetails, status_code=status.HTTP_201_CREATED
+)
+def place_order(order_details: PlaceOrder):
+    with session_maker() as session:
+        order = Order(
+            user_id=1,
+            delivery_address=order_details.delivery_address,
+            status=OrderStatusEnum.placed.value,
+        )
+        order.books.extend(
+            [BookOrders(book_id=book_id) for book_id in order_details.books]
+        )
+        session.add(order)
+        session.commit()
+        return GetOrderDetails(
+            **{
                 "id": order.id,
                 "created": order.created,
                 "last_updated": order.updated,
-                "books": order.books,
+                "books": [book.book_id for book in order.books],
                 "status": order.status,
                 "delivery_address": order.delivery_address,
             }
-            for order in orders
-        ]
+        )
 
 
 @server.put("/orders/{order_id}", response_model=GetOrderDetails)
-def update_ride_details(order_id: int, order_details: PlaceOrder):
+def update_order(order_id: int, order_details: PlaceOrder):
     with session_maker() as session:
         order = session.scalar(select(Order).where(Order.id == order_id))
         for key, value in order_details:
-            setattr(order, key, value)
+            if key != "books":
+                setattr(order, key, value)
+        # update books too
         session.commit()
         return {
             "id": order.id,
             "created": order.created,
             "last_updated": order.updated,
-            "books": order.books,
+            "books": [book.book_id for book in order.books],
             "status": order.status,
             "delivery_address": order.delivery_address,
         }
