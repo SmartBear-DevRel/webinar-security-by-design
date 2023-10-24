@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="9cab7dfb-4784-4a51-aee4-dd9f28a7c7ef" created="3.40.2" activeEnvironment="Acc" name="SmartBearCoin-Payee-Provider" updated="3.49.0 2023-10-13T06:54:34Z" encryptionMode="Not encrypted" resourceRoot="" projectVersion="" xmlns:con="http://eviware.com/soapui/config">
+<con:soapui-project id="9cab7dfb-4784-4a51-aee4-dd9f28a7c7ef" created="3.40.2" activeEnvironment="local" name="Secure-by-design-eCommerce" updated="3.49.0 2023-10-13T06:54:34Z" encryptionMode="Not encrypted" resourceRoot="" projectVersion="" xmlns:con="http://eviware.com/soapui/config">
   <con:settings/>
   <con:interface xsi:type="con:RestService" id="b6504654-cff3-4271-b43a-022c6556552a" name="SmartBearCoin - Payees API" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="file:/Users/saf/dev/webinar/webinar-collaborative-api-delivery-fintech/oas/openapi.yaml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <con:description>The **Customer Managment - Payees API** - allows retrieval of payees and payee transactions. The Payees API allows consumers to search, identify and retrieve payee information in one specified country.
@@ -27,6 +27,9 @@ Value exposed through Customer Management capabilities is build upon an API-Firs
         <con:authProfile>Inherit From Parent</con:authProfile>
       </con:entry>
       <con:entry environmentId="9fec74ec-694a-473f-8f54-6dea36261a3f">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
         <con:authProfile>Inherit From Parent</con:authProfile>
       </con:entry>
     </con:environmentSpec>
@@ -187,6 +190,9 @@ Attributes that can be used for sorting are:
             <con:entry environmentId="9fec74ec-694a-473f-8f54-6dea36261a3f">
               <con:authProfile>Inherit From Parent</con:authProfile>
             </con:entry>
+            <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
           </con:environmentSpec>
         </con:request>
         <con:environmentSpec>
@@ -199,6 +205,9 @@ Attributes that can be used for sorting are:
           <con:entry environmentId="9fec74ec-694a-473f-8f54-6dea36261a3f">
             <con:authProfile>Inherit From Parent</con:authProfile>
           </con:entry>
+          <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
         </con:environmentSpec>
       </con:method>
       <con:environmentSpec>
@@ -209,6 +218,9 @@ Attributes that can be used for sorting are:
           <con:authProfile>Inherit From Parent</con:authProfile>
         </con:entry>
         <con:entry environmentId="9fec74ec-694a-473f-8f54-6dea36261a3f">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
           <con:authProfile>Inherit From Parent</con:authProfile>
         </con:entry>
       </con:environmentSpec>
@@ -322,6 +334,9 @@ Attributes that can be used for sorting are:
             <con:entry environmentId="9fec74ec-694a-473f-8f54-6dea36261a3f">
               <con:authProfile>Inherit From Parent</con:authProfile>
             </con:entry>
+            <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
           </con:environmentSpec>
         </con:request>
         <con:environmentSpec>
@@ -334,6 +349,9 @@ Attributes that can be used for sorting are:
           <con:entry environmentId="9fec74ec-694a-473f-8f54-6dea36261a3f">
             <con:authProfile>Inherit From Parent</con:authProfile>
           </con:entry>
+          <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
         </con:environmentSpec>
       </con:method>
       <con:environmentSpec>
@@ -344,6 +362,9 @@ Attributes that can be used for sorting are:
           <con:authProfile>Inherit From Parent</con:authProfile>
         </con:entry>
         <con:entry environmentId="9fec74ec-694a-473f-8f54-6dea36261a3f">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
           <con:authProfile>Inherit From Parent</con:authProfile>
         </con:entry>
       </con:environmentSpec>
@@ -453,6 +474,9 @@ Attributes that can be used for sorting are:
             <con:entry environmentId="9fec74ec-694a-473f-8f54-6dea36261a3f">
               <con:authProfile>Inherit From Parent</con:authProfile>
             </con:entry>
+            <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
           </con:environmentSpec>
         </con:request>
         <con:environmentSpec>
@@ -463,6 +487,9 @@ Attributes that can be used for sorting are:
             <con:authProfile>Inherit From Parent</con:authProfile>
           </con:entry>
           <con:entry environmentId="9fec74ec-694a-473f-8f54-6dea36261a3f">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+          <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
             <con:authProfile>Inherit From Parent</con:authProfile>
           </con:entry>
         </con:environmentSpec>
@@ -477,10 +504,1220 @@ Attributes that can be used for sorting are:
         <con:entry environmentId="9fec74ec-694a-473f-8f54-6dea36261a3f">
           <con:authProfile>Inherit From Parent</con:authProfile>
         </con:entry>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
       </con:environmentSpec>
     </con:resource>
   </con:interface>
-  <con:testSuite id="3501d97b-121e-426d-99d3-4d55750b952f" name="SmartBearCoin - Payees API Test Suite 1">
+  <con:interface xsi:type="con:RestService" id="8413d033-5450-4089-a274-e4ecc6deac12" name="E-commerce API" type="rest_ex" wadlVersion="https://swagger.io/openapiv3/specification" definitionUrl="file:/C:/Users/frank.kilcommins/GitHub/webinar-security-by-design/apis/crapi.yaml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:description xsi:nil="true"/>
+    <con:settings id="08831656-15a5-46ea-905e-153fe339484b"/>
+    <con:definitionCache type="TEXT" rootPart="file:/C:/Users/frank.kilcommins/GitHub/webinar-security-by-design/apis/crapi.yaml">
+      <con:part>
+        <con:url>file:/C:/Users/frank.kilcommins/GitHub/webinar-security-by-design/apis/crapi.yaml</con:url>
+        <con:content>openapi: 3.0.3
+info:
+  title: E-commerce API
+  version: 0.1.0
+paths:
+  /login:
+    post:
+      summary: Login
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessToken'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /sellers/{seller_id}:
+    get:
+      summary: Get Seller Details
+      operationId: get_seller_details
+      parameters:
+        - name: seller_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Seller profile details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SellerProfile'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /users/{user_id}:
+    put:
+      summary: Update User Profile
+      operationId: update_user_profile
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerProfile'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerProfile'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /books:
+    get:
+      summary: List Books
+      operationId: list_books
+      parameters:
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 10
+        - name: filter
+          in: query
+          required: false
+          schema:
+            type: string
+            default: ''
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBooks'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+    post:
+      summary: Create Book Listing
+      operationId: create_book_listing
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListBook'
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBookDetails'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /admin/books:
+    post:
+      summary: Create Book Listing
+      operationId: create_book_listing_admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListBook'
+        required: true
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBookDetails'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /books/{book_id}:
+    get:
+      summary: Get Book Listing Details
+      operationId: get_book_listing_details
+      parameters:
+        - name: book_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBookDetails'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /orders:
+    get:
+      summary: List Orders
+      operationId: list_orders
+      parameters:
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 10
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+            default: delivered
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOrders'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /orders/{order_id}:
+    put:
+      summary: Update Order Details
+      operationId: update_order_details
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlaceOrder'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOrderDetails'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    AccessToken:
+      properties:
+        access_token:
+          type: string
+        refresh_token:
+          type: string
+      type: object
+      required:
+        - access_token
+        - refresh_token
+    BookFormatEnum:
+      type: string
+      enum:
+        - printed
+        - ebook
+    CustomerProfile:
+      properties:
+        id:
+          type: string
+        created:
+          type: string
+          format: date-time
+        last_updated:
+          type: string
+          format: date-time
+      type: object
+      required:
+        - id
+        - created
+        - last_updated
+    GetBookDetails:
+      properties:
+        format:
+          $ref: '#/components/schemas/BookFormatEnum'
+        author:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        percent_discount:
+          type: number
+        discount_min_loyalty_points:
+          type: integer
+        pages:
+          anyOf:
+            - type: integer
+        byte_size:
+          type: integer
+        id:
+          type: integer
+        created:
+          type: string
+          format: date-time
+        last_updated:
+          type: string
+          format: date-time
+        price_per_page:
+          type: number
+        price_per_byte:
+          type: number
+      type: object
+      required:
+        - id
+        - created
+        - last_updated
+        - format
+        - author
+        - title
+        - description
+        - price
+    GetOrderDetails:
+      properties:
+        books:
+          items:
+            type: integer
+          type: array
+        delivery_address:
+          type: string
+        id:
+          type: integer
+        created:
+          type: string
+          format: date-time
+        last_updated:
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/OrderStatusEnum'
+      type: object
+      required:
+        - books
+        - delivery_address
+        - id
+        - created
+        - last_updated
+        - status
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+      type: object
+    ListBook:
+      properties:
+        format:
+          $ref: '#/components/schemas/BookFormatEnum'
+        author:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        price:
+          type: number
+        percent_discount:
+          type: number
+        discount_min_loyalty_points:
+          type: integer
+        pages:
+          type: integer
+        byte_size:
+          type: integer
+      type: object
+      required:
+        - format
+        - author
+        - title
+        - description
+        - price
+    ListBooks:
+      properties:
+        books:
+          items:
+            $ref: '#/components/schemas/GetBookDetails'
+          type: array
+      type: object
+      required:
+        - books
+    ListOrders:
+      properties:
+        orders:
+          items:
+            $ref: '#/components/schemas/GetOrderDetails'
+          type: array
+      type: object
+      required:
+        - orders
+    Login:
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      type: object
+      required:
+        - username
+        - password
+    OrderStatusEnum:
+      type: string
+      enum:
+        - placed
+        - paid
+        - delivered
+    PlaceOrder:
+      properties:
+        books:
+          items:
+            type: integer
+          type: array
+        delivery_address:
+          type: string
+      type: object
+      required:
+        - books
+        - delivery_address
+    SellerProfile:
+      properties:
+        id:
+          type: integer
+        created:
+          type: string
+          format: date-time
+        last_updated:
+          type: string
+          format: date-time
+        name:
+          type: string
+        address:
+          type: string
+        sales:
+          type: integer
+        account_details:
+          type: string
+      type: object
+      required:
+        - id
+        - created
+        - last_updated
+        - name
+        - address
+        - sales
+        - account_details
+    UpdateCustomerProfile:
+      properties:
+        name:
+          type: string
+        avatar_url:
+          type: string
+        address:
+          type: string
+        card_details:
+          type: string
+        loyalty_points:
+          type: integer
+      type: object
+      required:
+        - name
+        - address
+        - card_details
+        - loyalty_points
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+          type: array
+        msg:
+          type: string
+        type:
+          type: string
+      type: object
+      required:
+        - loc
+        - msg
+        - type</con:content>
+        <con:type>https://swagger.io/openapiv3/specification</con:type>
+      </con:part>
+    </con:definitionCache>
+    <con:endpoints>
+      <con:endpoint>/</con:endpoint>
+    </con:endpoints>
+    <con:environmentSpec>
+      <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+    <con:resource name="/login" path="/login" id="835e1ef0-7e2e-4f6d-9e34-f93f3ec146a8">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="login" id="25c0d243-aab8-45f2-9fae-32e0a40d8311" method="POST">
+        <con:description>Login</con:description>
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Successful Response</con:description>
+          <con:sampleContent>{
+  "access_token" : "string",
+  "refresh_token" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>422</con:status>
+          <con:params/>
+          <con:description>Validation Error</con:description>
+          <con:sampleContent>{
+  "detail" : [ {
+    "loc" : [ "string" ],
+    "msg" : "string",
+    "type" : "string"
+  } ]
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+          <con:sampleContent>{
+  "username" : "string",
+  "password" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="286e966a-76f5-408c-9edf-682a3e6e1cfa" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>/</con:endpoint>
+          <con:request>{\r
+  "username" : "string",\r
+  "password" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>
+    <con:resource name="/sellers/{seller_id}" path="/sellers/{seller_id}" id="486a7675-e592-4e81-b635-60e294476f22">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="get_seller_details" id="c0290a29-d36d-4df4-98f3-e830a95d6f20" method="GET">
+        <con:description>Get Seller Details</con:description>
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>seller_id</con:name>
+            <con:style>TEMPLATE</con:style>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Seller profile details</con:description>
+          <con:sampleContent>{
+  "id" : 0,
+  "created" : "2015-07-20T15:49:04-07:00",
+  "last_updated" : "2015-07-20T15:49:04-07:00",
+  "name" : "string",
+  "address" : "string",
+  "sales" : 0,
+  "account_details" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>422</con:status>
+          <con:params/>
+          <con:description>Validation Error</con:description>
+          <con:sampleContent>{
+  "detail" : [ {
+    "loc" : [ "string" ],
+    "msg" : "string",
+    "type" : "string"
+  } ]
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="6c1801eb-f363-4093-abd7-6cefcac3d999" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>/</con:endpoint>
+          <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>
+    <con:resource name="/users/{user_id}" path="/users/{user_id}" id="79f95531-d2a4-4349-a665-c1665c28cdbc">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="update_user_profile" id="1b6cb1c6-f94d-428a-b25b-07b68de0a6b4" method="PUT">
+        <con:description>Update User Profile</con:description>
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>user_id</con:name>
+            <con:style>TEMPLATE</con:style>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Successful Response</con:description>
+          <con:sampleContent>{
+  "id" : "string",
+  "created" : "2015-07-20T15:49:04-07:00",
+  "last_updated" : "2015-07-20T15:49:04-07:00"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>422</con:status>
+          <con:params/>
+          <con:description>Validation Error</con:description>
+          <con:sampleContent>{
+  "detail" : [ {
+    "loc" : [ "string" ],
+    "msg" : "string",
+    "type" : "string"
+  } ]
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+          <con:sampleContent>{
+  "name" : "string",
+  "avatar_url" : "string",
+  "address" : "string",
+  "card_details" : "string",
+  "loyalty_points" : 0
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="89687ea0-9d6a-41ae-a635-944e75971929" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>/</con:endpoint>
+          <con:request>{\r
+  "name" : "string",\r
+  "avatar_url" : "string",\r
+  "address" : "string",\r
+  "card_details" : "string",\r
+  "loyalty_points" : 0\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>
+    <con:resource name="/books" path="/books" id="523f031f-b68e-431a-9f6f-c57638d67e47">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="list_books" id="3afe0dcb-75f8-41a8-b335-ffc91299b782" method="GET">
+        <con:description>List Books</con:description>
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>offset</con:name>
+            <con:value>0</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>0</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>limit</con:name>
+            <con:value>10</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>10</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>filter</con:name>
+            <con:value/>
+            <con:style>QUERY</con:style>
+            <con:default/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Successful Response</con:description>
+          <con:sampleContent>{
+  "books" : [ {
+    "format" : "printed",
+    "author" : "string",
+    "title" : "string",
+    "description" : "string",
+    "price" : 1.5,
+    "percent_discount" : 1.5,
+    "discount_min_loyalty_points" : 0,
+    "pages" : 0,
+    "byte_size" : 0,
+    "id" : 0,
+    "created" : "2015-07-20T15:49:04-07:00",
+    "last_updated" : "2015-07-20T15:49:04-07:00",
+    "price_per_page" : 1.5,
+    "price_per_byte" : 1.5
+  } ]
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>422</con:status>
+          <con:params/>
+          <con:description>Validation Error</con:description>
+          <con:sampleContent>{
+  "detail" : [ {
+    "loc" : [ "string" ],
+    "msg" : "string",
+    "type" : "string"
+  } ]
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="4749fe1f-0ab7-47fd-a0d6-c0559792dfe4" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>/</con:endpoint>
+          <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:method name="create_book_listing" id="7268dab5-1558-4ec7-9fa3-3668cc020b94" method="POST">
+        <con:description>Create Book Listing</con:description>
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>201</con:status>
+          <con:params/>
+          <con:description>Successful Response</con:description>
+          <con:sampleContent>{
+  "format" : "printed",
+  "author" : "string",
+  "title" : "string",
+  "description" : "string",
+  "price" : 1.5,
+  "percent_discount" : 1.5,
+  "discount_min_loyalty_points" : 0,
+  "pages" : 0,
+  "byte_size" : 0,
+  "id" : 0,
+  "created" : "2015-07-20T15:49:04-07:00",
+  "last_updated" : "2015-07-20T15:49:04-07:00",
+  "price_per_page" : 1.5,
+  "price_per_byte" : 1.5
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>422</con:status>
+          <con:params/>
+          <con:description>Validation Error</con:description>
+          <con:sampleContent>{
+  "detail" : [ {
+    "loc" : [ "string" ],
+    "msg" : "string",
+    "type" : "string"
+  } ]
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+          <con:sampleContent>{
+  "format" : "printed",
+  "author" : "string",
+  "title" : "string",
+  "description" : "string",
+  "price" : 1.5,
+  "percent_discount" : 1.5,
+  "discount_min_loyalty_points" : 0,
+  "pages" : 0,
+  "byte_size" : 0
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="d2cc7715-3b5e-4da8-89f9-1dbba78194f8" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>/</con:endpoint>
+          <con:request>{\r
+  "format" : "printed",\r
+  "author" : "string",\r
+  "title" : "string",\r
+  "description" : "string",\r
+  "price" : 1.5,\r
+  "percent_discount" : 1.5,\r
+  "discount_min_loyalty_points" : 0,\r
+  "pages" : 0,\r
+  "byte_size" : 0\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>
+    <con:resource name="/admin/books" path="/admin/books" id="12a2ac3b-ad7e-4d5b-8a1c-6df1530f9de1">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="create_book_listing_admin" id="9df350c5-63e4-4655-893c-543fb88078ff" method="POST">
+        <con:description>Create Book Listing</con:description>
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>201</con:status>
+          <con:params/>
+          <con:description>Successful Response</con:description>
+          <con:sampleContent>{
+  "format" : "printed",
+  "author" : "string",
+  "title" : "string",
+  "description" : "string",
+  "price" : 1.5,
+  "percent_discount" : 1.5,
+  "discount_min_loyalty_points" : 0,
+  "pages" : 0,
+  "byte_size" : 0,
+  "id" : 0,
+  "created" : "2015-07-20T15:49:04-07:00",
+  "last_updated" : "2015-07-20T15:49:04-07:00",
+  "price_per_page" : 1.5,
+  "price_per_byte" : 1.5
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>422</con:status>
+          <con:params/>
+          <con:description>Validation Error</con:description>
+          <con:sampleContent>{
+  "detail" : [ {
+    "loc" : [ "string" ],
+    "msg" : "string",
+    "type" : "string"
+  } ]
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+          <con:sampleContent>{
+  "format" : "printed",
+  "author" : "string",
+  "title" : "string",
+  "description" : "string",
+  "price" : 1.5,
+  "percent_discount" : 1.5,
+  "discount_min_loyalty_points" : 0,
+  "pages" : 0,
+  "byte_size" : 0
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="73fc5a82-0f40-4795-be12-58094fb6af7a" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>/</con:endpoint>
+          <con:request>{\r
+  "format" : "printed",\r
+  "author" : "string",\r
+  "title" : "string",\r
+  "description" : "string",\r
+  "price" : 1.5,\r
+  "percent_discount" : 1.5,\r
+  "discount_min_loyalty_points" : 0,\r
+  "pages" : 0,\r
+  "byte_size" : 0\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>
+    <con:resource name="/books/{book_id}" path="/books/{book_id}" id="a0f9600d-bf42-43a6-907c-9acc64b3fad2">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="get_book_listing_details" id="d7298265-3491-44b3-b138-cb6463405858" method="GET">
+        <con:description>Get Book Listing Details</con:description>
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>book_id</con:name>
+            <con:style>TEMPLATE</con:style>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Successful Response</con:description>
+          <con:sampleContent>{
+  "format" : "printed",
+  "author" : "string",
+  "title" : "string",
+  "description" : "string",
+  "price" : 1.5,
+  "percent_discount" : 1.5,
+  "discount_min_loyalty_points" : 0,
+  "pages" : 0,
+  "byte_size" : 0,
+  "id" : 0,
+  "created" : "2015-07-20T15:49:04-07:00",
+  "last_updated" : "2015-07-20T15:49:04-07:00",
+  "price_per_page" : 1.5,
+  "price_per_byte" : 1.5
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>422</con:status>
+          <con:params/>
+          <con:description>Validation Error</con:description>
+          <con:sampleContent>{
+  "detail" : [ {
+    "loc" : [ "string" ],
+    "msg" : "string",
+    "type" : "string"
+  } ]
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="8fc8702b-3c40-49c1-b760-863e8a6a3e26" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>/</con:endpoint>
+          <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>
+    <con:resource name="/orders" path="/orders" id="cc060fff-f03a-4de7-bab6-5bed0c8bd869">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="list_orders" id="196ecb3f-db2d-4196-b316-f503e951ed7d" method="GET">
+        <con:description>List Orders</con:description>
+        <con:settings/>
+        <con:parameters>
+          <con:parameter>
+            <con:name>offset</con:name>
+            <con:value>0</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>0</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>limit</con:name>
+            <con:value>10</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>10</con:default>
+          </con:parameter>
+          <con:parameter>
+            <con:name>status</con:name>
+            <con:value>delivered</con:value>
+            <con:style>QUERY</con:style>
+            <con:default>delivered</con:default>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Successful Response</con:description>
+          <con:sampleContent>{
+  "orders" : [ {
+    "books" : [ 0 ],
+    "delivery_address" : "string",
+    "id" : 0,
+    "created" : "2015-07-20T15:49:04-07:00",
+    "last_updated" : "2015-07-20T15:49:04-07:00",
+    "status" : "placed"
+  } ]
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>422</con:status>
+          <con:params/>
+          <con:description>Validation Error</con:description>
+          <con:sampleContent>{
+  "detail" : [ {
+    "loc" : [ "string" ],
+    "msg" : "string",
+    "type" : "string"
+  } ]
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="4e161f6c-ef23-47e8-8a21-0a776fdd65a2" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>/</con:endpoint>
+          <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>
+    <con:resource name="/orders/{order_id}" path="/orders/{order_id}" id="582e9627-8cdf-475c-a0a5-a54f51311963">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="update_order_details" id="2a40a569-64dd-477c-8489-36e2b052da64" method="PUT">
+        <con:description>Update Order Details</con:description>
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>order_id</con:name>
+            <con:style>TEMPLATE</con:style>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:description>Successful Response</con:description>
+          <con:sampleContent>{
+  "books" : [ 0 ],
+  "delivery_address" : "string",
+  "id" : 0,
+  "created" : "2015-07-20T15:49:04-07:00",
+  "last_updated" : "2015-07-20T15:49:04-07:00",
+  "status" : "placed"
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json</con:mediaType>
+          <con:status>422</con:status>
+          <con:params/>
+          <con:description>Validation Error</con:description>
+          <con:sampleContent>{
+  "detail" : [ {
+    "loc" : [ "string" ],
+    "msg" : "string",
+    "type" : "string"
+  } ]
+}</con:sampleContent>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+          <con:sampleContent>{
+  "books" : [ 0 ],
+  "delivery_address" : "string"
+}</con:sampleContent>
+        </con:representation>
+        <con:request name="Request 1" id="38b93b45-f356-4582-987b-5efdfe0544a9" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>/</con:endpoint>
+          <con:request>{\r
+  "books" : [ 0 ],\r
+  "delivery_address" : "string"\r
+}</con:request>
+          <con:credentials>
+            <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+            <con:authType>No Authorization</con:authType>
+          </con:credentials>
+          <con:parameters/>
+          <con:environmentSpec>
+            <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+              <con:authProfile>Inherit From Parent</con:authProfile>
+            </con:entry>
+          </con:environmentSpec>
+        </con:request>
+        <con:environmentSpec>
+          <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+            <con:authProfile>Inherit From Parent</con:authProfile>
+          </con:entry>
+        </con:environmentSpec>
+      </con:method>
+      <con:environmentSpec>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="3501d97b-121e-426d-99d3-4d55750b952f" name="SmartBearCoin - Payees API Test Suite 1" disabled="true">
     <con:description>The test suite generated for the REST service [SmartBearCoin - Payees API]</con:description>
     <con:settings/>
     <con:runType>SEQUENTIAL</con:runType>
@@ -555,6 +1792,9 @@ Attributes that can be used for sorting are:
               <con:entry environmentId="9fec74ec-694a-473f-8f54-6dea36261a3f">
                 <con:authProfile>Inherit From Parent</con:authProfile>
               </con:entry>
+              <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
             </con:environmentSpec>
           </con:restRequest>
         </con:config>
@@ -599,6 +1839,9 @@ Attributes that can be used for sorting are:
               <con:entry environmentId="9fec74ec-694a-473f-8f54-6dea36261a3f">
                 <con:authProfile>Inherit From Parent</con:authProfile>
               </con:entry>
+              <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
             </con:environmentSpec>
           </con:restRequest>
         </con:config>
@@ -637,6 +1880,9 @@ Attributes that can be used for sorting are:
               <con:entry environmentId="9fec74ec-694a-473f-8f54-6dea36261a3f">
                 <con:authProfile>Inherit From Parent</con:authProfile>
               </con:entry>
+              <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
             </con:environmentSpec>
           </con:restRequest>
         </con:config>
@@ -651,126 +1897,6 @@ Attributes that can be used for sorting are:
       </con:testStep>
       <con:properties/>
       <con:reportParameters/>
-      <con:securityTest id="3f6b2422-6782-48f9-b12c-3486d137ff1e" testCaseId="126c0810-c7d5-4954-8dcd-198cb92bac9c" name="Security Test 1" failSecurityTestOnScanErrors="true">
-        <con:settings/>
-        <con:testStepSecurityTest>
-          <con:testStepId>9e134db9-f2f9-447c-af58-d35179170767</con:testStepId>
-          <con:testStepSecurityProScan type="HttpMethodFuzzingScan" name="HTTP Method Fuzzing" id="ce317530-5913-491e-ac78-d399f1e93859" applyForFailedStep="false" disabled="false" runOnlyOnce="true">
-            <con:settings/>
-            <con:config xsi:type="con:HttpMethodFuzzingScan" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <con:deselectedMethods/>
-            </con:config>
-            <con:assertion type="Sensitive Information Exposure" id="890d8859-2b4c-46fd-a018-ee0e1d2dcb5c" name="Sensitive Information Exposure">
-              <con:configuration>
-                <AssertionSpecificExposureList>~(?s).*Runtime (E|e)rror.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*SQLSTATE: [A-Z0-9].*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*(s|S)tack:.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*(s|S)yntax (e|E)rror\s.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*\w+/\d{1,2}(\.\d{1,3})+.*###[Version x.y.z] Exposing version numbers gives
-            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*Invalid column name\s.*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*
-            (ORA|EXP|IMP|KUP|UDE|UDI|DBV|LCD|QSM|OCI|RMAN|LFI|PLS|PLQ|AMD|CLSR|PROC|PROT|TNS|NNC|NLP|NNF|NMP|NCR|NZE|O2F|O2I|O2U|PCB|PCC|SQL|AUD|IMG|VID|DRG|LPX|LSX)-\d{5}\s
-        .*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*(p|P)owered by:? ([a-zA-Z]+)( [a-zA-Z]+){0,3}( |/)\d\.\d{1,2}\.\d{1,3}.*###[Version x.y.z] Exposing version numbers gives
-            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*at [\w\$]+(\.[\w\$&lt;>\[\],]+|\.\.ctor)+(\((([\w\$&lt;>\`\[\]]+ [\w\$&lt;>]+, )*(([\w\$&lt;>\`\[\]]+
-            [\w\$&lt;>]+)))\)|\(\))
-        .*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*&lt;\w+:frame\s*class=".*"\s*line=".*"\s*method=".*"\s*/>.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*Traceback \(most recent call last\):.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*((I|i)ncorrect|(I|i)nvalid) (s|S)yntax.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*(s|S)tack ?(t|T)race.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*(e|E)rror was:\s.*###[Database error messages] Internal database information can be misused by hackers</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*(v|V)ersion:? \d\.\d{1,2}\.{1,3}-?.*###[Version x.y.z] Exposing version numbers gives
-            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*from [\w\$]+(\.[\w\$&lt;>]+)+:\d+:in `.+'.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*Error in process &lt;\d+\.\d+\.\d+> with exit value:.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*STACK\s?TRACE.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*Warning: [\w]+\(\) .+ in .+ on line \d{1,6}.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*((A|a)pache|vBulletin|MySQL|PostgreSQL|phpBB|Internet Information Services)( |/)\d{1,2}(\.\d{1,3})+
-        .*###[Version x.y.z] Exposing version numbers gives
-            unnecessary hints on your systems vulnerabilities</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*at [a-zA-Z][\w\$]*(\.[a-zA-Z][\w\$]*)+\((Unknown Source|Native
-            Method|[a-zA-Z][\w\$]*\.([a-zA-Z]{3,5}):\d+)\)
-        .*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*[^\s]+\.rb:\d+:in `.+'.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
-                <AssertionSpecificExposureList>~(?s).*File ".+", line [0-9]{1,6}, in.*###[Stacktrace] Can give hackers information about which software or language you are using</AssertionSpecificExposureList>
-                <IncludeProjectSpecific>true</IncludeProjectSpecific>
-                <IncludeGlobal>false</IncludeGlobal>
-              </con:configuration>
-            </con:assertion>
-            <con:assertion type="Valid HTTP Status Codes" id="c1699fec-95c4-4ef8-8440-fb98bb612bed" name="Valid HTTP Status Codes">
-              <con:settings>
-                <con:setting id="__LEVEL_">WARNING</con:setting>
-              </con:settings>
-              <con:configuration>
-                <codes>503,501,405,403,404</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:testStep xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-            <con:checkedParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-            <con:executionStrategy xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <con:strategy>ONE_BY_ONE</con:strategy>
-              <con:delay>100</con:delay>
-            </con:executionStrategy>
-          </con:testStepSecurityProScan>
-        </con:testStepSecurityTest>
-        <con:testStepSecurityTest>
-          <con:testStepId>a5076889-5121-4e1d-a8af-26fbb6f67631</con:testStepId>
-          <con:testStepSecurityProScan type="HttpMethodFuzzingScan" name="HTTP Method Fuzzing" id="e2f69d56-2801-4366-b6dd-7194a28a4012" applyForFailedStep="false" disabled="false" runOnlyOnce="true">
-            <con:settings/>
-            <con:config xsi:type="con:HttpMethodFuzzingScan" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <con:deselectedMethods/>
-            </con:config>
-            <con:assertion type="Sensitive Information Exposure" id="027b0013-c9c1-4133-bd8a-1e146c88462a" name="Sensitive Information Exposure">
-              <con:configuration/>
-            </con:assertion>
-            <con:assertion type="Valid HTTP Status Codes" id="9cb2e9ac-442d-449e-b854-5e86477fbe5d" name="Valid HTTP Status Codes">
-              <con:settings>
-                <con:setting id="__LEVEL_">WARNING</con:setting>
-              </con:settings>
-              <con:configuration>
-                <codes>503,501,405,403,404</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:testStep xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-            <con:checkedParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-            <con:executionStrategy xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <con:strategy>ONE_BY_ONE</con:strategy>
-              <con:delay>100</con:delay>
-            </con:executionStrategy>
-          </con:testStepSecurityProScan>
-        </con:testStepSecurityTest>
-        <con:testStepSecurityTest>
-          <con:testStepId>7312257d-fbc8-4400-b2b4-088c1de00869</con:testStepId>
-          <con:testStepSecurityProScan type="HttpMethodFuzzingScan" name="HTTP Method Fuzzing" id="6584af37-dc05-4fc7-a230-f10f8f889bfd" applyForFailedStep="false" disabled="false" runOnlyOnce="true">
-            <con:settings/>
-            <con:config xsi:type="con:HttpMethodFuzzingScan" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <con:deselectedMethods/>
-            </con:config>
-            <con:assertion type="Sensitive Information Exposure" id="117772aa-88b6-4249-8f36-6b6089e5b74a" name="Sensitive Information Exposure">
-              <con:configuration/>
-            </con:assertion>
-            <con:assertion type="Valid HTTP Status Codes" id="ebb0001f-ee6f-4286-8339-f0124053d0ca" name="Valid HTTP Status Codes">
-              <con:settings>
-                <con:setting id="__LEVEL_">WARNING</con:setting>
-              </con:settings>
-              <con:configuration>
-                <codes>503,501,405,403,404</codes>
-              </con:configuration>
-            </con:assertion>
-            <con:testStep xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-            <con:checkedParameters xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
-            <con:executionStrategy xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-              <con:strategy>ONE_BY_ONE</con:strategy>
-              <con:delay>100</con:delay>
-            </con:executionStrategy>
-          </con:testStepSecurityProScan>
-        </con:testStepSecurityTest>
-        <con:properties/>
-        <con:reportParameters/>
-      </con:securityTest>
       <con:environmentSpec>
         <con:entry environmentId="746474bf-7ed1-4a18-be94-2ab283e16806">
           <con:authProfile>Inherit From Parent</con:authProfile>
@@ -779,6 +1905,9 @@ Attributes that can be used for sorting are:
           <con:authProfile>Inherit From Parent</con:authProfile>
         </con:entry>
         <con:entry environmentId="9fec74ec-694a-473f-8f54-6dea36261a3f">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
           <con:authProfile>Inherit From Parent</con:authProfile>
         </con:entry>
       </con:environmentSpec>
@@ -793,6 +1922,809 @@ Attributes that can be used for sorting are:
         <con:authProfile>Inherit From Parent</con:authProfile>
       </con:entry>
       <con:entry environmentId="9fec74ec-694a-473f-8f54-6dea36261a3f">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+      <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+        <con:authProfile>Inherit From Parent</con:authProfile>
+      </con:entry>
+    </con:environmentSpec>
+  </con:testSuite>
+  <con:testSuite id="eae47803-6f4c-4db6-927c-9766bba5984a" name="E-commerce API Test Suite">
+    <con:description>The test suite generated for the REST service [E-commerce API]</con:description>
+    <con:settings id="5d4f7036-92e7-4dd9-b914-2b7571cceba7"/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="012369ed-34bc-438f-a27d-2b44ee866608" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="/login Test Case" searchProperties="true" timeout="0" disabled="true">
+      <con:description>The test case generated for the REST resource [/login] located at [/login]</con:description>
+      <con:settings/>
+      <con:testStep type="restrequest" name="Known User" id="12f2c889-bfc9-4406-b62b-3456a0e81620">
+        <con:settings/>
+        <con:config service="E-commerce API" resourcePath="/login" methodName="login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Known User" id="286e966a-76f5-408c-9edf-682a3e6e1cfa" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>/</con:endpoint>
+            <con:request>{\r
+  "username" : "username",\r
+  "password" : "egg"\r
+}</con:request>
+            <con:originalUri>http://localhost/login</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="2d5073ca-7bc3-4ad5-9893-953bb08d32a1" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:environmentSpec>
+              <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="Unknown User" id="412c8d1f-c53c-41a1-aa22-c5788187575f">
+        <con:settings/>
+        <con:config service="E-commerce API" resourcePath="/login" methodName="login" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Unknown User" id="286e966a-76f5-408c-9edf-682a3e6e1cfa" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>/</con:endpoint>
+            <con:request>{\r
+  "username" : "foo",\r
+  "password" : "bar"\r
+}</con:request>
+            <con:originalUri>http://localhost/login</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="2d5073ca-7bc3-4ad5-9893-953bb08d32a1" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>401</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:environmentSpec>
+              <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:testCase>
+    <con:testCase id="a60ec5e2-f170-4bd8-a0e8-fad7cf3811b2" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="/sellers/{seller_id} Test Case" searchProperties="true" timeout="0">
+      <con:description>The test case generated for the REST resource [/sellers/{seller_id}] located at [/sellers/{seller_id}]</con:description>
+      <con:settings/>
+      <con:testStep type="restrequest" name="Request 1" id="a31204a3-e9d1-4c86-9c33-bc704fef391c">
+        <con:settings/>
+        <con:config service="E-commerce API" resourcePath="/sellers/{seller_id}" methodName="get_seller_details" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="6c1801eb-f363-4093-abd7-6cefcac3d999" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>/</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/sellers/1</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="b969859c-18fd-41c7-88ad-36c5bcad927d" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="seller_id" value="1"/>
+            </con:parameters>
+            <con:environmentSpec>
+              <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:testCase>
+    <con:testCase id="de55fba9-f43e-43a3-bd45-839a79de189b" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="/users/{user_id} Test Case" searchProperties="true" timeout="0">
+      <con:description>The test case generated for the REST resource [/users/{user_id}] located at [/users/{user_id}]</con:description>
+      <con:settings/>
+      <con:testStep type="restrequest" name="Request 1" id="d02da261-d2aa-46c5-a361-7c3ff6654a4a">
+        <con:settings/>
+        <con:config service="E-commerce API" resourcePath="/users/{user_id}" methodName="update_user_profile" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="89687ea0-9d6a-41ae-a635-944e75971929" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>/</con:endpoint>
+            <con:request>{\r
+  "name" : "User name",\r
+  "avatar_url" : "string",\r
+  "address" : "Some address",\r
+  "card_details" : "3456765456",\r
+  "loyalty_points" : 0\r
+}</con:request>
+            <con:originalUri>http://localhost/users/1</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="528a5fd8-13e1-4c5e-8086-816f2fffced7" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="user_id" value="1"/>
+            </con:parameters>
+            <con:environmentSpec>
+              <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:testCase>
+    <con:testCase id="aa6b5173-244b-4560-82ce-adfc1515ae44" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="/books Test Case" searchProperties="true" timeout="0">
+      <con:description>The test case generated for the REST resource [/books] located at [/books]</con:description>
+      <con:settings/>
+      <con:testStep type="restrequest" name="Request 1" id="73ed59d1-b939-4020-9ed1-b6edb9dcb1e4">
+        <con:settings/>
+        <con:config service="E-commerce API" resourcePath="/books" methodName="list_books" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="4749fe1f-0ab7-47fd-a0d6-c0559792dfe4" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>/</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/books</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="26cb1b68-aafb-49aa-8b97-e111240ae46a" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="MessageContentAssertion" id="79ee9e94-f28b-466a-9fe9-f619edbd7a70" name="Message Content Assertion">
+              <con:configuration xsi:type="con:MessageContentAssertion">
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:format[1]</con:xpath>
+                  <con:element>format</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>exists</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>printed</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:author[1]</con:xpath>
+                  <con:element>author</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>exists</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>Jose Haro Peralta</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:title[1]</con:xpath>
+                  <con:element>title</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>exists</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>Microservice APIs</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:description[1]</con:xpath>
+                  <con:element>description</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>exists</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>A book about microservice APIs</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:price[1]</con:xpath>
+                  <con:element>price</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>&lt;=</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>0.00</con:expectedValue>
+                  <con:numberType>true</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:percent_discount[1]</con:xpath>
+                  <con:element>percent_discount</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>exists</con:operator>
+                  <con:enabled>false</con:enabled>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:percent_discount[1]/@null</con:xpath>
+                  <con:element>@null</con:element>
+                  <con:type/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>false</con:enabled>
+                  <con:expectedValue>true</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:discount_min_loyalty_points[1]</con:xpath>
+                  <con:element>discount_min_loyalty_points</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>false</con:enabled>
+                  <con:expectedValue>0</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:pages[1]</con:xpath>
+                  <con:element>pages</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>false</con:enabled>
+                  <con:expectedValue>440</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:byte_size[1]</con:xpath>
+                  <con:element>byte_size</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>exists</con:operator>
+                  <con:enabled>false</con:enabled>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:byte_size[1]/@null</con:xpath>
+                  <con:element>@null</con:element>
+                  <con:type/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>false</con:enabled>
+                  <con:expectedValue>true</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:id[1]</con:xpath>
+                  <con:element>id</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>false</con:enabled>
+                  <con:expectedValue>1</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:created[1]</con:xpath>
+                  <con:element>created</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>false</con:enabled>
+                  <con:expectedValue>2023-10-24T11:06:53.729368Z</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:last_updated[1]</con:xpath>
+                  <con:element>last_updated</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>false</con:enabled>
+                  <con:expectedValue>2023-10-24T11:06:53.729372Z</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:price_per_page[1]</con:xpath>
+                  <con:element>price_per_page</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>false</con:enabled>
+                  <con:expectedValue>0.125</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:price_per_byte[1]</con:xpath>
+                  <con:element>price_per_byte</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>exists</con:operator>
+                  <con:enabled>false</con:enabled>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[1]/ns1:price_per_byte[1]/@null</con:xpath>
+                  <con:element>@null</con:element>
+                  <con:type/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>false</con:enabled>
+                  <con:expectedValue>true</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:format[1]</con:xpath>
+                  <con:element>format</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>printed</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:author[1]</con:xpath>
+                  <con:element>author</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>Jose Haro Peralta</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:title[1]</con:xpath>
+                  <con:element>title</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>Microservice APIs</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:description[1]</con:xpath>
+                  <con:element>description</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>A book about microservice APIs</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:price[1]</con:xpath>
+                  <con:element>price</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>55.0</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:percent_discount[1]</con:xpath>
+                  <con:element>percent_discount</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>exists</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:percent_discount[1]/@null</con:xpath>
+                  <con:element>@null</con:element>
+                  <con:type/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>true</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:discount_min_loyalty_points[1]</con:xpath>
+                  <con:element>discount_min_loyalty_points</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>0</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:pages[1]</con:xpath>
+                  <con:element>pages</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>440</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:byte_size[1]</con:xpath>
+                  <con:element>byte_size</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>exists</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:byte_size[1]/@null</con:xpath>
+                  <con:element>@null</con:element>
+                  <con:type/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>true</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:id[1]</con:xpath>
+                  <con:element>id</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>4</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:created[1]</con:xpath>
+                  <con:element>created</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>2023-10-24T12:29:10.731314Z</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:last_updated[1]</con:xpath>
+                  <con:element>last_updated</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>2023-10-24T12:29:10.731318Z</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:price_per_page[1]</con:xpath>
+                  <con:element>price_per_page</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>0.125</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:price_per_byte[1]</con:xpath>
+                  <con:element>price_per_byte</con:element>
+                  <con:type xsi:nil="true"/>
+                  <con:operator>exists</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:elements>
+                  <con:xpath>declare namespace ns1='http://localhost/books';
+//ns1:Response[1]/ns1:books[1]/ns1:e[2]/ns1:price_per_byte[1]/@null</con:xpath>
+                  <con:element>@null</con:element>
+                  <con:type/>
+                  <con:operator>=</con:operator>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>true</con:expectedValue>
+                  <con:numberType>false</con:numberType>
+                </con:elements>
+                <con:originalMessage><![CDATA[<Response xmlns="http://localhost/books">
+   <books>
+      <e>
+         <format>printed</format>
+         <author>Jose Haro Peralta</author>
+         <title>Microservice APIs</title>
+         <description>A book about microservice APIs</description>
+         <price>55.0</price>
+         <percent_discount null="true"/>
+         <discount_min_loyalty_points>0</discount_min_loyalty_points>
+         <pages>440</pages>
+         <byte_size null="true"/>
+         <id>1</id>
+         <created>2023-10-24T11:06:53.729368Z</created>
+         <last_updated>2023-10-24T11:06:53.729372Z</last_updated>
+         <price_per_page>0.125</price_per_page>
+         <price_per_byte null="true"/>
+      </e>
+      <e>
+         <format>printed</format>
+         <author>Jose Haro Peralta</author>
+         <title>Microservice APIs</title>
+         <description>A book about microservice APIs</description>
+         <price>55.0</price>
+         <percent_discount null="true"/>
+         <discount_min_loyalty_points>0</discount_min_loyalty_points>
+         <pages>440</pages>
+         <byte_size null="true"/>
+         <id>4</id>
+         <created>2023-10-24T12:29:10.731314Z</created>
+         <last_updated>2023-10-24T12:29:10.731318Z</last_updated>
+         <price_per_page>0.125</price_per_page>
+         <price_per_byte null="true"/>
+      </e>
+   </books>
+</Response>]]></con:originalMessage>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:environmentSpec>
+              <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="POST Book" id="0f2a759e-2099-42d0-85eb-adc609107e99" disabled="true">
+        <con:settings/>
+        <con:config service="E-commerce API" resourcePath="/books" methodName="create_book_listing" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="POST Book" id="d2cc7715-3b5e-4da8-89f9-1dbba78194f8" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>/</con:endpoint>
+            <con:request>{\r
+  "format" : "printed",\r
+  "author" : "Jose Haro Peralta",\r
+  "title" : "I love APIs",\r
+  "description" : "The A-Z on modern APIs",\r
+  "price" : 19.99,\r
+  "percent_discount" : 1.0,\r
+  "discount_min_loyalty_points" : 0,\r
+  "pages" : 200,\r
+  "byte_size" : 0\r
+}</con:request>
+            <con:originalUri>http://localhost/books</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="99c973a1-4b05-4caf-ad5e-2f87ec966cd8" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>201</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Response SLA Assertion" id="88ab4f32-5d55-47d0-a405-3b7cb4ff4b28" name="Response SLA">
+              <con:configuration>
+                <SLA>201</SLA>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:environmentSpec>
+              <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:testCase>
+    <con:testCase id="61f6a382-654d-4988-a79b-6448c025d753" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="/admin/books Test Case" searchProperties="true" timeout="0" disabled="true">
+      <con:description>The test case generated for the REST resource [/admin/books] located at [/admin/books]</con:description>
+      <con:settings/>
+      <con:testStep type="restrequest" name="Request 1" id="1e7e5eb9-bb04-42e6-aad8-ee0c6448a23c">
+        <con:settings/>
+        <con:config service="E-commerce API" resourcePath="/admin/books" methodName="create_book_listing_admin" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="73fc5a82-0f40-4795-be12-58094fb6af7a" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>/</con:endpoint>
+            <con:request>{
+  "format" : "printed",
+  "author" : "Jose Haro Peralta",
+  "title" : "I love APIs",
+  "description" : "The A-Z on modern APIs",
+  "price" : 19.99,
+  "percent_discount" : 1.0,
+  "discount_min_loyalty_points" : 0,
+  "pages" : 200,
+  "byte_size" : 0
+}</con:request>
+            <con:originalUri>http://localhost/admin/books</con:originalUri>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+            <con:environmentSpec>
+              <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:testCase>
+    <con:testCase id="68ca6888-7cd3-4f8e-b198-d025d0de23b5" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="/books/{book_id} Test Case" searchProperties="true" timeout="0">
+      <con:description>The test case generated for the REST resource [/books/{book_id}] located at [/books/{book_id}]</con:description>
+      <con:settings/>
+      <con:testStep type="restrequest" name="Request 1" id="24238baa-f020-4507-bb75-f4f8a906dd93">
+        <con:settings/>
+        <con:config service="E-commerce API" resourcePath="/books/{book_id}" methodName="get_book_listing_details" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="8fc8702b-3c40-49c1-b760-863e8a6a3e26" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>/</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/books/1</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="8eb597b2-c2bc-4962-bcb0-d5aae80eab0e" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="book_id" value="1"/>
+            </con:parameters>
+            <con:environmentSpec>
+              <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:testCase>
+    <con:testCase id="34318ace-7114-450f-9748-fa683b23f4a1" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="/orders Test Case" searchProperties="true" timeout="0" disabled="true">
+      <con:description>The test case generated for the REST resource [/orders] located at [/orders]</con:description>
+      <con:settings/>
+      <con:testStep type="restrequest" name="Request 1" id="7488a96f-46a5-43da-84cd-8d76e14576fe">
+        <con:settings/>
+        <con:config service="E-commerce API" resourcePath="/orders" methodName="list_orders" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="4e161f6c-ef23-47e8-8a21-0a776fdd65a2" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>/</con:endpoint>
+            <con:request/>
+            <con:originalUri>http://localhost/orders</con:originalUri>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="status" value=""/>
+            </con:parameters>
+            <con:environmentSpec>
+              <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:testCase>
+    <con:testCase id="65fd93b2-6364-4f46-a20a-d1fc97cd1e72" discardOkResults="false" failOnError="true" failTestCaseOnErrors="true" keepSession="false" name="/orders/{order_id} Test Case" searchProperties="true" timeout="0" disabled="true">
+      <con:description>The test case generated for the REST resource [/orders/{order_id}] located at [/orders/{order_id}]</con:description>
+      <con:settings/>
+      <con:testStep type="restrequest" name="Request 1" id="9201cee4-fdd0-4a17-8cc1-9f87e12f44fc">
+        <con:settings/>
+        <con:config service="E-commerce API" resourcePath="/orders/{order_id}" methodName="update_order_details" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="Request 1" id="38b93b45-f356-4582-987b-5efdfe0544a9" mediaType="application/json">
+            <con:settings/>
+            <con:endpoint>/</con:endpoint>
+            <con:request>{\r
+  "books" : [ 0 ],\r
+  "delivery_address" : "string"\r
+}</con:request>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:parameters/>
+            <con:environmentSpec>
+              <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+                <con:authProfile>Inherit From Parent</con:authProfile>
+              </con:entry>
+            </con:environmentSpec>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+      <con:environmentSpec>
+        <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
+          <con:authProfile>Inherit From Parent</con:authProfile>
+        </con:entry>
+      </con:environmentSpec>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+    <con:environmentSpec>
+      <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
         <con:authProfile>Inherit From Parent</con:authProfile>
       </con:entry>
     </con:environmentSpec>
@@ -971,7 +2903,7 @@ Attributes that can be used for sorting are:
       <con:dispatchConfig/>
       <con:dispatchXPath/>
       <con:routeScript/>
-      <con:response name="Not Allowed" id="ccaf1348-b047-434e-81e3-c81feebdef7c" httpResponseStatus="405" mediaType="application/json">
+      <con:response name="Not Allowed" id="ccaf1348-b047-434e-81e3-c81feebdef7c" httpResponseStatus="405" mediaType="application/json" dataSource="">
         <con:settings/>
         <con:responseContent/>
       </con:response>
@@ -982,7 +2914,7 @@ Attributes that can be used for sorting are:
       <con:dispatchConfig/>
       <con:dispatchXPath/>
       <con:routeScript/>
-      <con:response name="Not Allowed" id="d0237e29-09a7-4dfb-ad69-4d69e6ddffa0" httpResponseStatus="405" mediaType="application/json">
+      <con:response name="Not Allowed" id="d0237e29-09a7-4dfb-ad69-4d69e6ddffa0" httpResponseStatus="405" mediaType="application/json" dataSource="">
         <con:settings/>
         <con:responseContent/>
       </con:response>
@@ -1049,6 +2981,16 @@ Attributes that can be used for sorting are:
   <con:environment id="9fec74ec-694a-473f-8f54-6dea36261a3f" name="Virtual" index="2">
     <con:service type="REST" name="SmartBearCoin - Payees API">
       <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://localhost:8088/</con:endpoint>
+    </con:service>
+    <con:databaseConnectionContainer/>
+    <con:jmsConnectionContainer/>
+  </con:environment>
+  <con:environment id="35e7cc34-1861-4f94-99b6-0d8d327da0c5" name="local" index="3">
+    <con:service type="REST" name="SmartBearCoin - Payees API">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://localhost:8080/customer-management/v1/payees</con:endpoint>
+    </con:service>
+    <con:service type="REST" name="E-commerce API">
+      <con:endpoint authProfile="No Authorization" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="" areGlobalProxySettingsIgnored="false">http://localhost:8000</con:endpoint>
     </con:service>
     <con:databaseConnectionContainer/>
     <con:jmsConnectionContainer/>
@@ -1208,6 +3150,9 @@ Attributes that can be used for sorting are:
       <con:authProfile>No Authorization</con:authProfile>
     </con:entry>
     <con:entry environmentId="9fec74ec-694a-473f-8f54-6dea36261a3f">
+      <con:authProfile>No Authorization</con:authProfile>
+    </con:entry>
+    <con:entry environmentId="35e7cc34-1861-4f94-99b6-0d8d327da0c5">
       <con:authProfile>No Authorization</con:authProfile>
     </con:entry>
   </con:environmentSpec>
