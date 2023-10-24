@@ -43,10 +43,10 @@ jobs:
         run: |
           CONTAINER_ID=$(docker ps -aqf "name=webinar-security-by-design-web-1")
           echo "::set-output name=container_id::$CONTAINER_ID"
-      - name: Migrate DB and Seed
+      - name: Migrate DB and Seed within ${{ steps.get-container.outputs.container_id }}
         run: |
-          docker exec -it ${{ steps.get-container.outputs.container_id}} alembic upgrade heads
-          docker exec -it ${{ steps.get-container.outputs.container_id}} python src/fixtures.py
+          docker exec -it ${{ steps.get-container.outputs.container_id }} alembic upgrade heads
+          docker exec -it ${{ steps.get-container.outputs.container_id }} python src/fixtures.py
       - name: Test local
         run: chmod ugo+rwx ReadyAPI-Tests && ./launchReadyAPITestRunner.sh
         env:
