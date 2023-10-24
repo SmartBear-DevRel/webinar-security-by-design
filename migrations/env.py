@@ -1,3 +1,4 @@
+import os
 from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config, create_engine
@@ -56,9 +57,9 @@ def run_migrations_online() -> None:
     and associate a connection with the context.
 
     """
-    connectable = create_engine(
-        "postgresql+psycopg://postgres:postgres@localhost:5432/postgres"
-    )
+
+    db_uri = os.getenv("db_uri", None) or "postgresql+psycopg://postgres:postgres@localhost:5432/postgres"
+    connectable = create_engine(db_uri)
 
     with connectable.connect() as connection:
         context.configure(
