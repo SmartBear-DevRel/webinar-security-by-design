@@ -37,7 +37,7 @@ jobs:
       - name: 'Checkout code'
         uses: actions/checkout@main
       - name: Setup the stack
-        run: docker-compose up
+        run: docker-compose up -d
       - name: Get Container Name
         id: get-container
         run: |
