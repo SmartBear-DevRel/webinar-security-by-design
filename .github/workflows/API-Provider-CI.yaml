@@ -14,24 +14,24 @@ env:
     results_file: ReadyAPI-Tests/report.xml
 
 jobs:
-  #lint-api:
-    #name: Run Spectral
-    #runs-on: ubuntu-latest
-    #steps:
+  lint-api:
+    name: Run Spectral
+    runs-on: ubuntu-latest
+    steps:
       # Check out the repository
-    #  - uses: actions/checkout@v2
-    #  - uses: actions/setup-node@v3
-    #  - run: |
-    #      npm install --save -D @stoplight/spectral-owasp-ruleset
-    #      npm install --save -D @stoplight/spectral-cli
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v3
+      - run: |
+          npm install --save -D @stoplight/spectral-owasp-ruleset
+          npm install --save -D @stoplight/spectral-cli
       # Run Spectral
-    #  - uses: stoplightio/spectral-action@latest
-    #    with:
-    #      file_glob: 'apis/*.yaml'
-    #      spectral_ruleset: '.spectral.yaml'
+      - uses: stoplightio/spectral-action@latest
+        with:
+          file_glob: 'apis/*.yaml'
+          spectral_ruleset: '.spectral.yaml'
 
   test-api:
-    #needs: lint-api
+    needs: lint-api
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout code'
