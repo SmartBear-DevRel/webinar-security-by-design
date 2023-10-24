@@ -38,16 +38,16 @@ jobs:
         uses: actions/checkout@main
       - name: Setup the stack
         run: docker-compose up -d
-      - name: Migrate and seed database
-        uses: azure/powershell@v1
-        with:
-          inlineScript: |
-            $containerId = ""
-            $containerId = docker ps -aqf "name=webinar-security-by-design-web"
-            docker exec -it $containerId alembic upgrade heads
-            docker exec -it containerId python src/fixtures.py
-          azPSVersion: 'latest'
-      - name: Test
+      - name: Get Container Name
+        id: get-container
+        run: |
+          CONTAINER_ID=$(docker ps -aqf "name=webinar-security-by-design-web")
+          echo "::set-output name=container_id::$CONTAINER_ID"
+      - name: Migrate DB and Seed
+        run: |
+          docker exec -it ${{ steps.get-container.outputs.container_id}} alembic upgrade heads
+          docker exec -it ${{ steps.get-container.outputs.container_id}} python src/fixtures.py
+      - name: Test local
         run: chmod ugo+rwx ReadyAPI-Tests && ./launchReadyAPITestRunner.sh
         env:
           PROJECT_FOLDER: ReadyAPI-Tests
