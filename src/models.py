@@ -28,7 +28,7 @@ class Base(DeclarativeBase):
 class BookListing(Base):
     __tablename__ = "book_listing"
 
-    seller_id: Mapped[Uuid] = mapped_column(ForeignKey("seller.id"))
+    seller_id: Mapped[int] = mapped_column(ForeignKey("seller.id"))
     title: Mapped[str]
     author: Mapped[str]
     description: Mapped[str]
@@ -43,14 +43,14 @@ class BookListing(Base):
 class BookOrders(Base):
     __tablename__ = "book_orders"
 
-    order_id: Mapped[int] = mapped_column(ForeignKey("order.id"))
+    order_id: Mapped[int] = mapped_column(ForeignKey("customer_order.id"))
     book_id: Mapped[int] = mapped_column(ForeignKey("book_listing.id"))
 
 
 class Order(Base):
-    __tablename__ = "order"
+    __tablename__ = "customer_order"
 
-    user_id: Mapped[str]
+    user_id: Mapped[int]
     delivery_address: Mapped[str]
     status: Mapped[str]
     books: Mapped[List[BookOrders]] = relationship()
@@ -59,8 +59,8 @@ class Order(Base):
 class Review(Base):
     __tablename__ = "review"
 
-    book_id: Mapped[Uuid] = mapped_column(ForeignKey("book_listing.id"))
-    user_id: Mapped[str]
+    book_id: Mapped[int] = mapped_column(ForeignKey("book_listing.id"))
+    user_id: Mapped[int]
     rating: Mapped[int]
     review: Mapped[Optional[str]]
     upvotes: Mapped[int] = mapped_column(default=0)
