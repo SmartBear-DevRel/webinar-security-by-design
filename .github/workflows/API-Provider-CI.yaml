@@ -41,6 +41,7 @@ jobs:
       - name: Get Container Name
         id: get-container
         run: |
+          docker ps -aqf "name=webinar-security-by-design-web-1"
           CONTAINER_ID=$(docker ps -aqf "name=webinar-security-by-design-web-1")
           echo "::set-output name=container_id::$CONTAINER_ID"
           echo $CONTAINER_ID > container_id.txt
