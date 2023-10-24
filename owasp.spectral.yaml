@@ -1,4 +1,4 @@
-extends: [spectral:oas]
+extends: [spectral:oas, "@stoplight/spectral-owasp-ruleset"]
 formats: 
   - oas3
 
@@ -87,17 +87,17 @@ rules:
       functionOptions:
         match: '/^([A-Z]-)*([A-Z][a-z0-9]-)*([A-Z][a-z0-9])+/'      
  
- # SB-API-070-date-and-date-time-field-pattern:
- #   description: MUST have a pattern defined to express supported format
- #   severity: error
- #   recommended: true
- #   message: 'date and date-time fields MUST have pattern specified'
- #   given: 
- #   - $..properties[?(@.format == 'date')]
- #   - $..properties[?(@.format == 'date-time')]
- #   then:
- #     field: pattern
- #     function: truthy
+  #SB-API-070-date-and-date-time-field-pattern:
+  #  description: MUST have a pattern defined to express supported format
+  #  severity: error
+  #  recommended: true
+  #  message: 'date and date-time fields MUST have pattern specified'
+  #  given: 
+  #  - $..properties[?(@.format == 'date')]
+  #  - $..properties[?(@.format == 'date-time')]
+  #  then:
+  #    field: pattern
+  #    function: truthy
   
   SB-API-070-date-fields:
     description: MUST conform to ISO 8601
