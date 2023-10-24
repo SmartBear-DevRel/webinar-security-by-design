@@ -16,9 +16,9 @@ class AccessToken(BaseModel):
 
 
 class OrderStatusEnum(str, enum.Enum):
-    booked = "placed"
+    placed = "placed"
     paid = "paid"
-    completed = "delivered"
+    delivered = "delivered"
 
 
 class MakePayment(BaseModel):
@@ -54,6 +54,7 @@ class BookFormatEnum(str, enum.Enum):
 
 
 class ListBook(BaseModel):
+    seller_id: Optional[int]
     format: BookFormatEnum
     author: str
     title: str
