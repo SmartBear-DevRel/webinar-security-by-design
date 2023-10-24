@@ -13,7 +13,12 @@ uvicorn = "^0.22.0"
 sqlalchemy = "^2.0.19"
 alembic = "^1.11.1"
 psycopg = {extras = ["binary"], version = "^3.1.9"}
+python-jose = "^3.3.0"
 
+
+[tool.poetry.group.dev.dependencies]
+requests = "^2.31.0"
+black = "^23.10.1"
 
 [build-system]
 requires = ["poetry-core"]
