@@ -1,10 +1,8 @@
-import enum
-import uuid
-from datetime import datetime, timezone, date
+from datetime import datetime, timezone
 from typing import List, Optional
 
-from sqlalchemy import MetaData, Uuid, ForeignKey, DateTime, UniqueConstraint, create_engine
-from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase, relationship, sessionmaker
+from sqlalchemy import MetaData, Uuid, ForeignKey, DateTime
+from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase, relationship
 
 
 class Base(DeclarativeBase):
@@ -52,7 +50,7 @@ class BookOrders(Base):
 class Order(Base):
     __tablename__ = "order"
 
-    customer_id: Mapped[str]
+    user_id: Mapped[str]
     delivery_address: Mapped[str]
     status: Mapped[str]
     books: Mapped[List[BookOrders]] = relationship()
@@ -62,14 +60,14 @@ class Review(Base):
     __tablename__ = "review"
 
     book_id: Mapped[Uuid] = mapped_column(ForeignKey("book_listing.id"))
-    customer_id: Mapped[str]
+    user_id: Mapped[str]
     rating: Mapped[int]
     review: Mapped[Optional[str]]
     upvotes: Mapped[int] = mapped_column(default=0)
 
 
-class Customer(Base):
-    __tablename__ = "customer"
+class User(Base):
+    __tablename__ = "user_profile"
 
     username: Mapped[str]
     password: Mapped[str]
@@ -77,6 +75,8 @@ class Customer(Base):
     name: Mapped[str]
     address: Mapped[str]
     card_details: Mapped[str]
+    is_admin: Mapped[bool] = mapped_column(default=False)
+    loyalty_points: Mapped[int] = mapped_column(default=0)
 
 
 class Seller(Base):
