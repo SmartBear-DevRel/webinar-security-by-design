@@ -15,7 +15,7 @@ env:
 
 jobs:
   lint-api:
-    name: Run Spectral
+    name: linting-api
     runs-on: ubuntu-latest
     steps:
       # Check out the repository
@@ -30,8 +30,33 @@ jobs:
           file_glob: 'apis/*.yaml'
           spectral_ruleset: '.spectral.yaml'
 
-  functional-test-api:
+  
+  validation-implementation:
     needs: lint-api
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout code'
+        uses: actions/checkout@main
+      - name: Setup the stack
+        run: docker-compose up -d
+      - name: Get Container Name
+        id: get-container
+        run: |
+          docker ps -a
+          CONTAINER_ID=$(docker ps -aqf "name=webinar-security-by-design_web_1")
+          echo "::set-output name=container_id::$CONTAINER_ID"
+      - name: Migrate DB and Seed within ${{ steps.get-container.outputs.container_id }}
+        run: |
+          docker exec -t ${{ steps.get-container.outputs.container_id }} alembic upgrade heads
+          docker exec ${{ steps.get-container.outputs.container_id }} python src/fixtures.py    
+      - uses: schemathesis/action@v1
+        with:
+          schema: './apis/crapi.yaml'
+          base-url: 'http://0.0.0.0:8000'
+          args: '--dry-run --validate-schema true'
+
+  functional-test-api:
+    needs: [lint-api, validation-implementation]
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout code'
@@ -57,7 +82,7 @@ jobs:
           ENDPOINT: http://0.0.0.0:8000
 
   security-test-api:
-    needs: [lint-api, functional-test-api]
+    needs: [lint-api, validation-implementation, functional-test-api]
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout code'
