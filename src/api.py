@@ -1,3 +1,4 @@
+import os
 from datetime import datetime, timezone, timedelta
 from typing import Optional
 
@@ -23,9 +24,8 @@ from src.schemas import (
 
 server = FastAPI(debug=True, title="E-commerce API")
 
-session_maker = sessionmaker(
-    bind=create_engine("postgresql+psycopg://postgres:postgres@localhost:5432")
-)
+db_uri = os.getenv("db_uri", None) or "postgresql+psycopg://postgres:postgres@localhost:5432/postgres"
+session_maker = sessionmaker(bind=create_engine(db_uri))
 
 
 def book_model_to_dict(book_model):

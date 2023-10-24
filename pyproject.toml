@@ -4,7 +4,6 @@ version = "0.1.0"
 description = "Code for the Secure By Design Webinar"
 authors = ["Jose Haro Peralta"]
 readme = "README.md"
-packages = [{include = "secure_by_design"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
