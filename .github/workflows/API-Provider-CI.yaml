@@ -44,9 +44,6 @@ jobs:
           docker ps -a
           CONTAINER_ID=$(docker ps -aqf "name=webinar-security-by-design_web_1")
           echo "::set-output name=container_id::$CONTAINER_ID"
-          echo $CONTAINER_ID > container_id.txt
-      - name: Display Container Name
-        run: cat container_id.txt
       - name: Migrate DB and Seed within ${{ steps.get-container.outputs.container_id }}
         run: |
           docker exec -t ${{ steps.get-container.outputs.container_id }} alembic upgrade heads
@@ -57,4 +54,4 @@ jobs:
           PROJECT_FOLDER: ReadyAPI-Tests
           PROJECT_FILE: 'secure-by-design-readyapi-project.xml'
           SLM_API_KEY: ${{ secrets.SLM_API_KEY }} 
-          ENDPOINT: http://localhost:8000
+          ENDPOINT: http://0.0.0.0:8000

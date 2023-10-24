@@ -5,7 +5,7 @@
 ## PROD
 # ENDPOINT=https://sbdevrel-fua-smartbearcoin-prd.azurewebsites.net/api/payees
 
-ENDPOINT=${ENDPOINT:-'http://localhost:8000'}
+ENDPOINT=${ENDPOINT:-'http://0.0.0.0:8000'}
 PROJECT_FOLDER=${PROJECT_FOLDER:-'ReadyAPI-Tests'}
 PROJECT_FILE=${PROJECT_FILE:-'secure-by-design-readyapi-project.xml'}
 
@@ -43,5 +43,5 @@ docker run --rm --network="host" \
     -e API_KEY=${SLM_API_KEY} \
     -e ENDPOINT=${ENDPOINT} \
     -e PROJECT_FILE=${PROJECT_FILE} \
-    -e COMMAND_LINE="'-e${ENDPOINT}' '-f/project' '-RSecurity Issues Report' -FPDF '-EDefault environment' /project/${PROJECT_FILE}" \
+    -e COMMAND_LINE="'-f/project' '-RSecurity Issues Report' -FPDF '-Elocal' /project/${PROJECT_FILE}" \
     smartbear/readyapi-security-testrunner:latest
