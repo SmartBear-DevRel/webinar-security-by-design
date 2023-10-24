@@ -3,18 +3,27 @@ from datetime import datetime, timezone
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from models import BookListing, Seller
+from models import BookListing, Seller, User
 
-session_maker = sessionmaker(bind=create_engine("postgresql+psycopg://postgres:postgres@localhost:5432"))
+session_maker = sessionmaker(
+    bind=create_engine("postgresql+psycopg://postgres:postgres@localhost:5432")
+)
 
 with session_maker() as session:
+    user = User(
+        username="username",
+        password="egg",
+        name="User Name",
+        address="Some address",
+        card_details="3456765456",
+    )
     seller = Seller(
         name="Seller",
         address="Some address",
         account_details="3456765456",
         sales=355,
     )
-    session.add(seller)
+    session.add_all([seller, user])
     session.commit()
     book1 = BookListing(
         seller_id=seller.id,
