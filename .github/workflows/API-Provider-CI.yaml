@@ -37,11 +37,11 @@ jobs:
       - name: 'Checkout code'
         uses: actions/checkout@main
       - name: Setup the stack
-        run: docker-compose up -d
+        run: docker-compose up
       - name: Get Container Name
         id: get-container
         run: |
-          CONTAINER_ID=$(docker ps -aqf "name=webinar-security-by-design-web")
+          CONTAINER_ID=$(docker ps -aqf "name=webinar-security-by-design-web-1")
           echo "::set-output name=container_id::$CONTAINER_ID"
       - name: Migrate DB and Seed
         run: |
