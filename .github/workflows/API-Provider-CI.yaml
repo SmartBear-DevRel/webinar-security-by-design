@@ -49,8 +49,8 @@ jobs:
         run: cat container_id.txt
       - name: Migrate DB and Seed within ${{ steps.get-container.outputs.container_id }}
         run: |
-          docker exec -t ${{ steps.get-container.outputs.container_id }} alembic upgrade heads || echo true
-          docker exec ${{ steps.get-container.outputs.container_id }} python src/fixtures.py || echo true
+          docker exec -t ${{ steps.get-container.outputs.container_id }} alembic upgrade heads
+          docker exec ${{ steps.get-container.outputs.container_id }} python src/fixtures.py
       - name: Test local
         run: chmod ugo+rwx ReadyAPI-Tests && ./launchReadyAPITestRunner.sh
         env:
