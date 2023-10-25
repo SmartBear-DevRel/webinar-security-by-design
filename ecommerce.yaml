@@ -1,0 +1,774 @@
+openapi: 3.0.3
+info:
+  title: E-commerce API
+  version: 0.1.0
+paths:
+  /login:
+    post:
+      summary: Login
+      operationId: login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Login'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessToken'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /sellers/{seller_id}:
+    get:
+      summary: Get Seller Details
+      operationId: get_seller_details
+      parameters:
+        - name: seller_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+            maximum: 9223372036854775808
+      responses:
+        '200':
+          description: Seller profile details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SellerProfile'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /users/{user_id}:
+    put:
+      summary: Update User Profile
+      operationId: update_user_profile
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+            maximum: 9223372036854775808
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCustomerProfile'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CustomerProfile'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /books:
+    get:
+      summary: List Books
+      operationId: list_books
+      parameters:
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 0
+            minimum: 0
+            maximum: 9223372036854775808
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 10
+            minimum: 1
+            maximum: 9223372036854775808
+        - name: filter
+          in: query
+          required: false
+          schema:
+            type: string
+            minLength: 5
+            maxLength: 250
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListBooks'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create Book Listing
+      operationId: create_book_listing
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListBook'
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBookDetails'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /admin/books:
+    post:
+      summary: Create Book Listing
+      operationId: create_book_listing_admin
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ListBook'
+        required: true
+      responses:
+        '201':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBookDetails'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /books/{book_id}:
+    get:
+      summary: Get Book Listing Details
+      operationId: get_book_listing_details
+      parameters:
+        - name: book_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+            maximum: 9223372036854775808
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetBookDetails'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /orders:
+    get:
+      summary: List Orders
+      operationId: list_orders
+      parameters:
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 0
+            minimum: 0
+            maximum: 9223372036854775808
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+            default: 10
+            minimum: 1
+            maximum: 9223372036854775808
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+            enum:
+              - placed
+              - paid
+              - delivered
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOrders'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Place Order
+      operationId: place_order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlaceOrder'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ListOrders'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /orders/{order_id}:
+    put:
+      summary: Update Order Details
+      operationId: update_order_details
+      parameters:
+        - name: order_id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+            maximum: 9223372036854775808
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PlaceOrder'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOrderDetails'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        This security scheme uses JSON Web Tokens (JWTs) in compliance with RFC8725.
+  schemas:
+    Error:
+      type: object
+      required: 
+        - detail
+      properties:
+        detail:
+          type: string
+          maxLength: 500
+    AccessToken:
+      type: object
+      required:
+        - access_token
+        - refresh_token
+      properties:
+        access_token:
+          type: string
+          maxLength: 1000
+        refresh_token:
+          type: string
+          maxLength: 1000
+    BookFormatEnum:
+      type: string
+      enum:
+        - printed
+        - ebook
+    CustomerProfile:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - created
+        - last_updated
+      properties:
+        id:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 9223372036854775808
+        created:
+          type: string
+          format: date-time
+          maxLength: 250
+        last_updated:
+          type: string
+          format: date-time
+          maxLength: 250
+    GetBookDetails:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - created
+        - last_updated
+        - format
+        - author
+        - title
+        - description
+        - price
+      properties:
+        format:
+          $ref: '#/components/schemas/BookFormatEnum'
+        author:
+          type: string
+          maxLength: 250
+        title:
+          type: string
+          maxLength: 250
+        description:
+          type: string
+          maxLength: 250
+        price:
+          type: number
+        percent_discount:
+          type: number
+        discount_min_loyalty_points:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 9223372036854775808
+        pages:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 9223372036854775808
+        byte_size:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 9223372036854775808
+        id:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 9223372036854775808
+        created:
+          type: string
+          format: date-time
+          maxLength: 250
+        last_updated:
+          type: string
+          format: date-time
+          maxLength: 250
+        price_per_page:
+          type: number
+          minimum: 1
+          maximum: 9223372036854775808
+        price_per_byte:
+          type: number
+          minimum: 1
+          maximum: 9223372036854775808
+    GetOrderDetails:
+      type: object
+      additionalProperties: false
+      required:
+        - books
+        - delivery_address
+        - id
+        - created
+        - last_updated
+        - status
+      properties:
+        books:
+          type: array
+          maxItems: 100
+          items:
+            type: integer
+            format: int64
+            minimum: 1
+            maximum: 9223372036854775808
+        delivery_address:
+          type: string
+          minLength: 5
+          maxLength: 250
+        id:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 9223372036854775808
+        created:
+          type: string
+          format: date-time
+          maxLength: 250
+        last_updated:
+          type: string
+          format: date-time
+          maxLength: 250
+        status:
+          $ref: '#/components/schemas/OrderStatusEnum'
+    HTTPValidationError:
+      properties:
+        detail:
+          type: array
+          maxItems: 100
+          items:
+            $ref: '#/components/schemas/ValidationError'
+      type: object
+    ListBook:
+      type: object
+      additionalProperties: false
+      required:
+        - format
+        - author
+        - title
+        - description
+        - price
+      properties:
+        format:
+          $ref: '#/components/schemas/BookFormatEnum'
+        author:
+          type: string
+          maxLength: 250
+        title:
+          type: string
+          maxLength: 250
+        description:
+          type: string
+          maxLength: 250
+        price:
+          type: number
+        percent_discount:
+          type: number
+          minimum: 1
+          maximum: 9223372036854775808
+        discount_min_loyalty_points:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 9223372036854775808
+        pages:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 9223372036854775808
+        byte_size:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 9223372036854775808
+    ListBooks:
+      properties:
+        books:
+          type: array
+          maxItems: 100
+          items:
+            $ref: '#/components/schemas/GetBookDetails'
+      type: object
+      required:
+        - books
+    ListOrders:
+      type: object
+      additionalProperties: false
+      required:
+        - orders
+      properties:
+        orders:
+          type: array
+          maxItems: 100
+          items:
+            $ref: '#/components/schemas/GetOrderDetails'
+    Login:
+      properties:
+        username:
+          type: string
+          maxLength: 250
+        password:
+          type: string
+          maxLength: 250
+      type: object
+      required:
+        - username
+        - password
+    OrderStatusEnum:
+      type: string
+      enum:
+        - placed
+        - paid
+        - delivered
+    PlaceOrder:
+      type: object
+      required:
+        - books
+        - delivery_address
+      additionalProperties: false
+      properties:
+        books:
+          type: array
+          maxItems: 100
+          items:
+            type: integer
+            format: int64
+            minimum: 1
+            maximum: 9223372036854775808
+        delivery_address:
+          type: string
+          maxLength: 250
+    SellerProfile:
+      type: object
+      additionalProperties: false
+      required:
+        - id
+        - created
+        - last_updated
+        - name
+        - address
+        - sales
+        - account_details
+      properties:
+        id:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 9223372036854775808
+        created:
+          type: string
+          format: date-time
+          maxLength: 250
+        last_updated:
+          type: string
+          format: date-time
+          maxLength: 250
+        name:
+          type: string
+          maxLength: 250
+        address:
+          type: string
+          maxLength: 250
+        sales:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 9223372036854775808
+        account_details:
+          type: string
+          maxLength: 250
+    UpdateCustomerProfile:
+      type: object
+      additionalProperties: false
+      required:
+        - name
+        - address
+        - card_details
+        - loyalty_points
+      properties:
+        name:
+          type: string
+          maxLength: 250
+        avatar_url:
+          type: string
+          maxLength: 250
+        address:
+          type: string
+          maxLength: 250
+        card_details:
+          type: string
+          maxLength: 250
+        loyalty_points:
+          type: integer
+          format: int64
+          minimum: 1
+          maximum: 9223372036854775808
+    ValidationError:
+      properties:
+        loc:
+          type: array
+          maxItems: 100
+          items:
+            anyOf:
+              - type: string
+                maxLength: 1000
+              - type: integer
+                format: int64
+                minimum: 1
+                maximum: 9223372036854775808
+        msg:
+          type: string
+          maxLength: 250
+        type:
+          type: string
+          maxLength: 250
+      type: object
+      required:
+        - loc
+        - msg
+        - type
+security:
+  - bearerAuth: []
