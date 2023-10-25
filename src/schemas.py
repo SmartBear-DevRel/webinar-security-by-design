@@ -2,7 +2,7 @@ import enum
 from datetime import datetime
 from typing import Optional
 
-from pydantic import BaseModel, Extra
+from pydantic import BaseModel, Extra, StrictStr
 
 
 class Login(BaseModel):
@@ -34,7 +34,7 @@ class GetPayment(MakePayment):
 
 class PlaceOrder(BaseModel, extra=Extra.allow):
     books: list[int]
-    delivery_address: str
+    delivery_address: StrictStr
 
 
 class GetOrderDetails(PlaceOrder):

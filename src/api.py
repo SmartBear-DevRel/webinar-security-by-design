@@ -89,7 +89,7 @@ def login(login_details: Login):
 def get_seller_details(seller_id: int):
     with session_maker() as session:
         seller = session.execute(
-            text(f"select * from seller where id = '{seller_id}';")
+            text(f"select * from seller where id = {seller_id};")
         ).fetchone()
         if seller is None:
             raise HTTPException(
@@ -190,6 +190,10 @@ def create_book_listing(book_details: ListBook):
 def get_book_listing_details(book_id: int):
     with session_maker() as session:
         book = session.scalar(select(BookListing).where(BookListing.id == book_id))
+        if book is None:
+            raise HTTPException(
+                status_code=404, detail=f"Book with ID {book_id} not found."
+            )
         return book_model_to_dict(book)
 
 
@@ -223,6 +227,12 @@ def list_orders(
 )
 def place_order(order_details: PlaceOrder):
     with session_maker() as session:
+        existing_books = [book.id for book in session.scalars(select(BookListing))]
+        for book in order_details.books:
+            if book not in existing_books:
+                raise HTTPException(
+                    status_code=404, detail=f"Book with ID {book} not found."
+                )
         order = Order(
             user_id=1,
             delivery_address=order_details.delivery_address,
@@ -249,6 +259,10 @@ def place_order(order_details: PlaceOrder):
 def update_order(order_id: int, order_details: PlaceOrder):
     with session_maker() as session:
         order = session.scalar(select(Order).where(Order.id == order_id))
+        if order is None:
+            raise HTTPException(
+                status_code=404, detail=f"Order with ID {order_id} not found."
+            )
         for key, value in order_details:
             if key != "books":
                 setattr(order, key, value)
