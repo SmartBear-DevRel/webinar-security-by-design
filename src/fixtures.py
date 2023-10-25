@@ -14,7 +14,7 @@ session_maker = sessionmaker(bind=create_engine(db_uri))
 with session_maker() as session:
     user = User(
         username="username",
-        password="egg",
+        password="egg33",
         name="User Name",
         address="Some address",
         card_details="3456765456",
