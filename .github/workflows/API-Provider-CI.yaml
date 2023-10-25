@@ -3,11 +3,10 @@ name: API-Provider-CI
 on:
     push:
       branches:
-      - main
+      - fixed-spec
+      - secure-implementation
     pull_request:
-    workflow_dispatch:
-      
-      
+    workflow_dispatch:    
 
 env:
     #oas_file: oas/openapi-transformed.json
@@ -27,7 +26,7 @@ jobs:
       # Run Spectral
       - uses: stoplightio/spectral-action@latest
         with:
-          file_glob: 'apis/*.yaml'
+          file_glob: 'apis/ecommerce.yaml'
           spectral_ruleset: '.spectral.yaml'
 
   
