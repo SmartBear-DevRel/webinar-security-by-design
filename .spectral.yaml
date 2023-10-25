@@ -1,5 +1,15 @@
-extends: [spectral:oas]
-formats: 
+overrides:
+  - files:
+      - "ecommerce.yaml"
+      - "crapi.yaml"
+    rules:
+      owasp:api4:2019-string-restricted: "off"
+      owasp:api4:2019-rate-limit-responses-429: "off"
+      owasp:api4:2019-rate-limit: "off"
+      owasp:api1:2019-no-numeric-ids: "off"
+
+extends: [spectral:oas, "@stoplight/spectral-owasp-ruleset"]
+formats:
   - oas3
 
 rules:
@@ -9,23 +19,46 @@ rules:
 
   # Note: The Spectral VSCode extension will not display "hint" messages, so use "info" rather than "hint".
 
-  SBD-API-snake-case-property-names:
-      description: property names must be snake case
-      severity: error
-      recommended: true
-      message: '{{property}} MUST follow snake_case'
-      given: $..properties.*~ 
-      then:
-        function: casing
-        functionOptions:
-          type: snake
+  #SB-API-050-property-names:
+  #  description: property names must be camelCase and alphanumeric
+  #  severity: error
+  #  recommended: true
+  #  message: '{{property}} MUST follow camelCase and be ASCII alphanumeric characters or `_` or `$`.'
+  #  given: $..properties.*~
+  #  then:
+  #    function: pattern
+  #    field: name
+  #    functionOptions:
+  #      match: '/^[a-z$]{1}[A-Z09$]*/'
+
+#  SB-API-050-property-names:
+#    description: property names must be camelCase and alphanumeric
+#    severity: error
+#    recommended: true
+#    message: '{{property}} MUST follow camelCase'
+#    given: $..properties.*~
+#    then:
+#      function: casing
+#      functionOptions:
+#        type: camel
+
+  #SB-API-050-query-parameter-names:
+  #  description: query parameter names must be camelCase and alphanumeric
+  #  severity: error
+  #  recommended: true
+  #  message: '{{property}} MUST follow camelCase and be ASCII alphanumeric characters or `_` or `$`.'
+  #  given: $..parameters[?(@.in == 'query')].name
+  #  then:
+  #    function: pattern
+  #    functionOptions:
+  #      match: '/^[a-z$]{1}[A-Z0-9$]*/'
 
   SB-API-050-query-parameter-names:
     description: query parameter names must be camelCase
     severity: error
     recommended: true
     message: '{{property}} MUST follow camelCase'
-    given: $..parameters[?(@.in == 'query')].name  
+    given: $..parameters[?(@.in == 'query')].name
     then:
       function: casing
       functionOptions:
@@ -40,19 +73,19 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: '^(/|[a-z0-9-.]+|{[a-zA-Z0-9_]+})+$'    
+        match: '^(/|[a-z0-9-.]+|{[a-zA-Z0-9_]+})+$'
 
-  SB-API-055-date-datetime-properties:
-    description: should end with 'At'
-    severity: warn
-    recommended: true
-    message: Consider having {{property}} end with a suffix of 'At' to promote readability
-    given: $..properties[?(@.format == 'date' || @.format == 'date-time')]~
-    then:
-      function: pattern
-      field: name
-      functionOptions:
-        notMatch: '.+(?<!At)$'    
+#  SB-API-055-date-datetime-properties:
+#    description: should end with 'At'
+#    severity: warn
+#    recommended: true
+#    message: Consider having {{property}} end with a suffix of 'At' to promote readability
+#    given: $..properties[?(@.format == 'date' || @.format == 'date-time')]~
+#    then:
+#      function: pattern
+#      field: name
+#      functionOptions:
+#        notMatch: '.+(?<!At)$'
 
   SB-API-059-resource-orientated:
     description: Actions or verbs MUST NOT form part of a URL
@@ -63,7 +96,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: '^((?!(get|put|delete|patch|post|search|update|copy|clone|fork|rename|default|transfer|.transfer|move|duplicate|bulk|batch|meta|.meta|github|private|.collaboration|template|.template|compare|json|yaml|lang)).)*$'      
+        match: '^((?!(get|put|delete|patch|post|search|update|copy|clone|fork|rename|default|transfer|.transfer|move|duplicate|bulk|batch|meta|.meta|github|private|.collaboration|template|.template|compare|json|yaml|lang)).)*$'
 
   SB-API-061-request-headers:
     description: MUST NOT start with X- or x-
@@ -85,19 +118,19 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: '/^([A-Z]-)*([A-Z][a-z0-9]-)*([A-Z][a-z0-9])+/'      
- 
- # SB-API-070-date-and-date-time-field-pattern:
- #   description: MUST have a pattern defined to express supported format
- #   severity: error
- #   recommended: true
- #   message: 'date and date-time fields MUST have pattern specified'
- #   given: 
- #   - $..properties[?(@.format == 'date')]
- #   - $..properties[?(@.format == 'date-time')]
- #   then:
- #     field: pattern
- #     function: truthy
+        match: '/^([A-Z]-)*([A-Z][a-z0-9]-)*([A-Z][a-z0-9])+/'
+
+#  SB-API-070-date-and-date-time-field-pattern:
+#    description: MUST have a pattern defined to express supported format
+#    severity: error
+#    recommended: true
+#    message: 'date and date-time fields MUST have pattern specified'
+#    given:
+#    - $..properties[?(@.format == 'date')]
+#    - $..properties[?(@.format == 'date-time')]
+#    then:
+#      field: pattern
+#      function: truthy
   
   SB-API-070-date-fields:
     description: MUST conform to ISO 8601
