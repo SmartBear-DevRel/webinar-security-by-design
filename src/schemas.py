@@ -2,17 +2,17 @@ import enum
 from datetime import datetime
 from typing import Optional
 
-from pydantic import BaseModel, Extra, StrictStr
+from pydantic import BaseModel, Extra, field_validator, constr
 
 
 class Login(BaseModel):
-    username: str
-    password: str
+    username: constr(min_length=5)
+    password: constr(min_length=5)
 
 
 class AccessToken(BaseModel):
-    access_token: str
-    refresh_token: str
+    access_token: constr(min_length=5)
+    refresh_token: constr(min_length=5)
 
 
 class OrderStatusEnum(str, enum.Enum):
@@ -22,7 +22,7 @@ class OrderStatusEnum(str, enum.Enum):
 
 
 class MakePayment(BaseModel):
-    card_number: str
+    card_number: constr(min_length=5)
     cvv: int
 
 
@@ -32,9 +32,15 @@ class GetPayment(MakePayment):
     last_updated: datetime
 
 
-class PlaceOrder(BaseModel, extra=Extra.allow):
+class PlaceOrder(BaseModel, extra=Extra.forbid):
     books: list[int]
-    delivery_address: StrictStr
+    delivery_address: constr(min_length=5)
+
+    @field_validator("delivery_address")
+    def delivery_address_non_null(cls, value: str):
+        assert "\u0000" not in value, "delivery_address cannot contain NUL (0x00) bytes."
+        if value.isdigit():
+            assert int(value) != 0, "delivery_address cannot have null-like values."
 
 
 class GetOrderDetails(PlaceOrder):
@@ -56,8 +62,8 @@ class BookFormatEnum(str, enum.Enum):
 class ListBook(BaseModel):
     seller_id: Optional[int]
     format: BookFormatEnum
-    author: str
-    title: str
+    author: constr(min_length=5)
+    title: constr(min_length=5)
     description: Optional[str]
     price: float
     percent_discount: Optional[float] = None
@@ -82,17 +88,17 @@ class SellerProfile(BaseModel):
     id: int
     created: datetime
     last_updated: datetime
-    name: str
-    address: str
+    name: constr(min_length=5)
+    address: constr(min_length=5)
     sales: int
-    account_details: str
+    account_details: constr(min_length=5)
 
 
-class UpdateUserProfile(BaseModel, extra=Extra.allow):
-    name: str
+class UpdateUserProfile(BaseModel, extra=Extra.forbid):
+    name: constr(min_length=5)
     avatar_url: Optional[str] = None
-    address: str
-    card_details: str
+    address: constr(min_length=5)
+    card_details: constr(min_length=5)
     loyalty_points: int
 
 

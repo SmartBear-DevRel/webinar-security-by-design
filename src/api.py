@@ -2,14 +2,16 @@ import os
 from datetime import datetime, timezone, timedelta
 from typing import Optional
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query
+from fastapi.params import Path
 from jose import jwt
-from sqlalchemy import create_engine, select, text
+from sqlalchemy import create_engine, select
+from sqlalchemy.exc import IntegrityError, DataError
 from sqlalchemy.orm import sessionmaker
 from starlette import status
 
-from src.models import BookListing, Order, User, BookOrders
-from src.schemas import (
+from good_src.models import BookListing, Order, User, BookOrders, Seller
+from good_src.schemas import (
     PlaceOrder,
     GetOrderDetails,
     GetBookDetails,
@@ -71,12 +73,17 @@ def generate_token(user_id, hour_duration):
 @server.post("/login", response_model=AccessToken)
 def login(login_details: Login):
     with session_maker() as session:
-        user = session.execute(
-            text(
-                f"select * from user_profile where username = '{login_details.username}' "
-                f"and password = '{login_details.password}';"
+        try:
+            user = session.scalar(
+                select(User).where(
+                    User.username == login_details.username,
+                    User.password == login_details.password
+                )
             )
-        ).fetchone()
+        except DataError as error:
+            raise HTTPException(
+                status_code=400, detail="Malformed payload"
+            )
         if user is None:
             raise HTTPException(status_code=401, detail=f"Wrong username or password")
         return {
@@ -86,11 +93,9 @@ def login(login_details: Login):
 
 
 @server.get("/sellers/{seller_id}", response_model=SellerProfile)
-def get_seller_details(seller_id: int):
+def get_seller_details(seller_id: int = Path(ge=1, lt=9223372036854775808)):
     with session_maker() as session:
-        seller = session.execute(
-            text(f"select * from seller where id = {seller_id};")
-        ).fetchone()
+        seller = session.scalar(select(Seller).where(Seller.id == seller_id))
         if seller is None:
             raise HTTPException(
                 status_code=404, detail=f"Seller with ID {seller_id} does not exist"
@@ -107,7 +112,10 @@ def get_seller_details(seller_id: int):
 
 
 @server.put("/users/{user_id}", response_model=UserProfile)
-def update_user_profile(user_id: int, user_details: UpdateUserProfile):
+def update_user_profile(
+        user_details: UpdateUserProfile,
+        user_id: int = Path(lt=9223372036854775808, ge=1),
+):
     with session_maker() as session:
         user = session.scalar(select(User).where(User.id == user_id))
         if user is None:
@@ -131,16 +139,16 @@ def update_user_profile(user_id: int, user_details: UpdateUserProfile):
 
 @server.get("/books", response_model=ListBooks)
 def list_books(
-    offset: Optional[int] = 0,
-    limit: Optional[int] = 10,
-    format: Optional[str] = "",
+    offset: int = Query(default=0, ge=0, lt=9223372036854775808),
+    limit: int = Query(default=10, ge=1, lt=9223372036854775808),
+    format: str = "",
 ):
     with session_maker() as session:
-        books = session.execute(
-            text(
-                f"select * from book_listing where discount_min_loyalty_points < 50 and "
-                f"format like '%{format}%' offset {offset} limit {limit};"
-            )
+        books = session.scalars(
+            select(BookListing).where(
+                BookListing.discount_min_loyalty_points < 500,
+                BookListing.format.like(f"%{format}%")
+            ).offset(offset).limit(limit)
         )
         return {"books": [book_model_to_dict(book) for book in books]}
 
@@ -187,7 +195,7 @@ def create_book_listing(book_details: ListBook):
 
 
 @server.get("/books/{book_id}", response_model=GetBookDetails)
-def get_book_listing_details(book_id: int):
+def get_book_listing_details(book_id: int = Path(lt=9223372036854775808, ge=1)):
     with session_maker() as session:
         book = session.scalar(select(BookListing).where(BookListing.id == book_id))
         if book is None:
@@ -199,13 +207,13 @@ def get_book_listing_details(book_id: int):
 
 @server.get("/orders", response_model=ListOrders)
 def list_orders(
-    offset: Optional[int] = 0,
-    limit: Optional[int] = 10,
-    status: Optional[str] = "delivered",
+    offset: int = Query(default=0, ge=0, lt=9223372036854775808),
+    limit: int = Query(default=10, ge=1, lt=9223372036854775808),
+    status: OrderStatusEnum = OrderStatusEnum.delivered,
 ):
     with session_maker() as session:
         orders = session.scalars(
-            select(Order).where(Order.status == status).offset(offset).limit(limit)
+            select(Order).where(Order.status == status.value).offset(offset).limit(limit)
         )
         return {
             "orders": [
@@ -242,7 +250,12 @@ def place_order(order_details: PlaceOrder):
             [BookOrders(book_id=book_id) for book_id in order_details.books]
         )
         session.add(order)
-        session.commit()
+        try:
+            session.commit()
+        except IntegrityError as error:
+            raise HTTPException(
+                status_code=400, detail=f"Malformed payload."
+            )
         return GetOrderDetails(
             **{
                 "id": order.id,
@@ -256,7 +269,7 @@ def place_order(order_details: PlaceOrder):
 
 
 @server.put("/orders/{order_id}", response_model=GetOrderDetails)
-def update_order(order_id: int, order_details: PlaceOrder):
+def update_order(order_details: PlaceOrder, order_id: int = Path(lt=9223372036854775808, ge=1)):
     with session_maker() as session:
         order = session.scalar(select(Order).where(Order.id == order_id))
         if order is None:
@@ -267,7 +280,12 @@ def update_order(order_id: int, order_details: PlaceOrder):
             if key != "books":
                 setattr(order, key, value)
         # update books too
-        session.commit()
+        try:
+            session.commit()
+        except IntegrityError as error:
+            raise HTTPException(
+                status_code=400, detail="Malformed payload."
+            )
         return {
             "id": order.id,
             "created": order.created,
