@@ -1,6 +1,5 @@
 import os
 from datetime import datetime, timezone, timedelta
-from typing import Optional
 
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.params import Path
@@ -10,8 +9,8 @@ from sqlalchemy.exc import IntegrityError, DataError
 from sqlalchemy.orm import sessionmaker
 from starlette import status
 
-from good_src.models import BookListing, Order, User, BookOrders, Seller
-from good_src.schemas import (
+from src.models import BookListing, Order, User, BookOrders, Seller
+from src.schemas import (
     PlaceOrder,
     GetOrderDetails,
     GetBookDetails,
