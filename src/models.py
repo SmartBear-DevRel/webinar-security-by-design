@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 from typing import List, Optional
 
-from sqlalchemy import MetaData, Uuid, ForeignKey, DateTime
+from sqlalchemy import MetaData, ForeignKey, DateTime, BigInteger
 from sqlalchemy.orm import Mapped, mapped_column, DeclarativeBase, relationship
 
 
@@ -16,7 +16,7 @@ class Base(DeclarativeBase):
         }
     )
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
     created: Mapped[datetime] = mapped_column(
         DateTime(timezone=True), default=lambda _: datetime.now(timezone.utc)
     )
