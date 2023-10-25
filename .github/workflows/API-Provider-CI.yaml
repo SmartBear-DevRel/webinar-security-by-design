@@ -3,7 +3,7 @@ name: API-Provider-CI
 on:
     push:
       branches:
-      - main
+      - complete-crapi
     pull_request:
     workflow_dispatch:
       
